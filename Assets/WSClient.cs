@@ -19,8 +19,10 @@ public class WSClient : MonoBehaviour
 	public GameObject packageDiagramPrefab;
 	public GameObject wordCloudPrefab;
     public GameObject cityPrefab;
+    public GameObject diagramGridPrefab;
     public Transform diagrams;
 	public Transform misc;
+	public Transform grid;
 
 	private WebSocket ws;
 	private ConcurrentQueue<Action> queue;
@@ -62,6 +64,7 @@ public class WSClient : MonoBehaviour
 		if (type == "class")
 		{
 			CreateClassDiagram(data);
+			CreateGrid();
 		}
 		else if (type == "package")
 		{
@@ -295,5 +298,16 @@ public class WSClient : MonoBehaviour
 	private void OnDestroy()
 	{
 		ws.Close();
+	}
+
+	private void CreateGrid()
+	{
+		
+		queue.Enqueue(() =>
+		{
+			var dGrid = Instantiate(diagramGridPrefab, grid);
+			var cdGrid = dGrid.GetComponent<GridManager>();
+			cdGrid.GridGenerate();
+		});
 	}
 }
