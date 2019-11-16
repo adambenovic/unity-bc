@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 10, y: 10}
+  m_EffectDistance: {x: 5, y: 5}
   m_UseGraphicAlpha: 1
 --- !u!1 &2271463560863531605
 GameObject:
@@ -240,6 +240,8 @@ MonoBehaviour:
     type: 3}
   minusButton: {fileID: 7294237552894167080, guid: 4e3adde356b7df948a11a6528c68e09e,
     type: 3}
+  clearButton: {fileID: 6106785706536180820, guid: ca0a04bf036960f40be1679cd1e62514,
+    type: 3}
   triggerSelectAction:
     m_PersistentCalls:
       m_Calls: []
@@ -249,6 +251,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: GameObjectEvent, XDE, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   triggerMinusAction:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameObjectEvent, XDE, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  triggerClearAction:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: GameObjectEvent, XDE, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null

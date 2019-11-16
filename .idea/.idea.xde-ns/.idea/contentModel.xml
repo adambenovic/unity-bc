@@ -11,6 +11,7 @@
         <e p="Diagram.cs" t="Include" />
         <e p="Extruder.cs" t="Include" />
         <e p="FlyCamera.cs" t="Include" />
+        <e p="GridManager.cs" t="Include" />
         <e p="IDEManager.cs" t="Include" />
         <e p="PackageDiagram.cs" t="Include" />
         <e p="Subset.cs" t="Include" />
