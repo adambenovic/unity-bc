@@ -1,0 +1,15 @@
+{ "XmiId" : "",
+  "XmiType" : "uml:OccurrenceSpecification",
+  "toBefore" : [],
+  "toAfter" : [],
+  "covered" : [],
+  "generalOrdering" : [],
+  "enclosingInteraction" : { "XmiIdRef" : "" },
+  "name" : "",
+  "owner" : { "XmiIdRef" : "" },
+  "ownedElement" : [],
+  "ownedComment" : [],
+  "diElement" : [],
+  "dgElement" : [],
+  "ChildXmiElement" : []
+}

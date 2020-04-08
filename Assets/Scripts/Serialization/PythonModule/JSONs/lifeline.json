@@ -1,0 +1,12 @@
+{ "XmiId" : "",
+  "XmiType" : "uml:Lifeline",
+  "coveredBy" : [],
+  "interaction" : { "XmiIdRef" : "" },
+  "name" : "",
+  "owner" : { "XmiIdRef" : "" },
+  "ownedElement" : [],
+  "ownedComment" : [],
+  "diElement" : [],
+  "dgElement" : [],
+  "ChildXmiElement" : []
+}

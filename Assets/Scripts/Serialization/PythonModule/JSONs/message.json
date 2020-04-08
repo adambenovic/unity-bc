@@ -1,0 +1,15 @@
+{ "XmiId" : "",
+  "XmiType" : "uml:Message",
+  "messageKind_" : 0,
+  "messageSort" : 0,
+  "receiveEvent" : { "XmiIdRef" : "" },
+  "sendEvent" : { "XmiIdRef" : "" },
+  "interaction" : { "XmiIdRef" : "" },
+  "name" : "",
+  "owner" : { "XmiIdRef" : "" },
+  "ownedElement" : [],
+  "ownedComment" : [],
+  "diElement" : [],
+  "dgElement" : [],
+  "ChildXmiElement" : []
+}

@@ -302,12 +302,12 @@ public class WSClient : MonoBehaviour
 
 	private void CreateGrid()
 	{
-		
 		queue.Enqueue(() =>
 		{
 			var dGrid = Instantiate(diagramGridPrefab, grid);
 			var cdGrid = dGrid.GetComponent<GridManager>();
 			cdGrid.GridGenerate();
+			FileSerializationManager.LoadElementsFromFile("./Adam.json");
 		});
 	}
 }

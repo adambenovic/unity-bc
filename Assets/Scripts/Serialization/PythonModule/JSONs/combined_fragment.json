@@ -1,0 +1,16 @@
+{ "XmiId" : "",
+  "XmiType" : "uml:CombinedFragment",
+  "interactionOperator" : 0,
+  "operand" : [],
+  "cfragmentGate" : [],
+  "covered" : [],
+  "generalOrdering" : [],
+  "enclosingInteraction" : { "XmiIdRef" : "" },
+  "name" : "",
+  "owner" : { "XmiIdRef" : "" },
+  "ownedElement" : [],
+  "ownedComment" : [],
+  "diElement" : [],
+  "dgElement" : [],
+  "ChildXmiElement" : []
+}

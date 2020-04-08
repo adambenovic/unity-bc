@@ -14,6 +14,82 @@
         <e p="GridManager.cs" t="Include" />
         <e p="IDEManager.cs" t="Include" />
         <e p="PackageDiagram.cs" t="Include" />
+        <e p="Scripts" t="Include">
+          <e p="Data" t="Include">
+            <e p="DI" t="Include">
+              <e p="Diagram2D.cs" t="Include" />
+              <e p="Diagram3D.cs" t="Include" />
+              <e p="DiElement.cs" t="Include" />
+              <e p="DiElement2D.cs" t="Include" />
+              <e p="DiElement3D.cs" t="Include" />
+              <e p="Edge2D.cs" t="Include" />
+              <e p="Edge3D.cs" t="Include" />
+              <e p="Shape2D.cs" t="Include" />
+              <e p="Shape3D.cs" t="Include" />
+              <e p="UML" t="Include">
+                <e p="LifeLine.cs" t="Include" />
+                <e p="Message.cs" t="Include" />
+              </e>
+            </e>
+            <e p="MOF" t="Include">
+              <e p="MofElement.cs" t="Include" />
+              <e p="UML" t="Include">
+                <e p="CommonStructure" t="Include">
+                  <e p="Comment.cs" t="Include" />
+                  <e p="Constraint.cs" t="Include" />
+                  <e p="Element.cs" t="Include" />
+                </e>
+                <e p="Interactions" t="Include">
+                  <e p="ActionExecutionSpecification.cs" t="Include" />
+                  <e p="BehaviorExecutionSpecification.cs" t="Include" />
+                  <e p="CombinedFragment.cs" t="Include" />
+                  <e p="ConsiderIgnoreFragment.cs" t="Include" />
+                  <e p="Continuation.cs" t="Include" />
+                  <e p="DestructionOccurrenceSpecification.cs" t="Include" />
+                  <e p="ExecutionOccurrenceSpecification.cs" t="Include" />
+                  <e p="ExecutionSpecification.cs" t="Include" />
+                  <e p="Gate.cs" t="Include" />
+                  <e p="GeneralOrdering.cs" t="Include" />
+                  <e p="Interaction.cs" t="Include" />
+                  <e p="InteractionConstraint.cs" t="Include" />
+                  <e p="InteractionFragment.cs" t="Include" />
+                  <e p="InteractionOperand.cs" t="Include" />
+                  <e p="InteractionOperatorKind.cs" t="Include" />
+                  <e p="InteractionUse.cs" t="Include" />
+                  <e p="LifeLine.cs" t="Include" />
+                  <e p="Message.cs" t="Include" />
+                  <e p="MessageEnd.cs" t="Include" />
+                  <e p="MessageKind.cs" t="Include" />
+                  <e p="MessageOccurrenceSpecification.cs" t="Include" />
+                  <e p="MessageSort.cs" t="Include" />
+                  <e p="OccurrenceSpecification.cs" t="Include" />
+                  <e p="PartDecomposition.cs" t="Include" />
+                  <e p="StateInvariant.cs" t="Include" />
+                </e>
+                <e p="Values" t="Include">
+                  <e p="OpaqueExpression.cs" t="Include" />
+                  <e p="ValueSpecification.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="XmiCollection.cs" t="Include" />
+            <e p="XmiElement.cs" t="Include" />
+          </e>
+          <e p="Serialization" t="Include">
+            <e p="AbstractFactory.cs" t="Include" />
+            <e p="FactoryRegister.cs" t="Include" />
+            <e p="FileSerializationManager.cs" t="Include" />
+            <e p="JsonConvertor.cs" t="Include" />
+            <e p="SerializationManager.cs" t="Include" />
+            <e p="UML" t="Include">
+              <e p="FragmentFactory.cs" t="Include" />
+              <e p="LifelineFactory.cs" t="Include" />
+              <e p="MessageFactory.cs" t="Include" />
+              <e p="OperandFactory.cs" t="Include" />
+              <e p="SequenceDiagramFactory.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Subset.cs" t="Include" />
         <e p="TextMesh Pro" t="Include">
           <e p="Examples &amp; Extras" t="Include">
