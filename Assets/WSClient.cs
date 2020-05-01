@@ -308,7 +308,6 @@ public class WSClient : MonoBehaviour
 			var dGrid = Instantiate(diagramGridPrefab, grid);
 			var cdGrid = dGrid.GetComponent<GridManager>();
 			cdGrid.GridGenerate();
-			SerializationManager.LoadElementsFromFile("./Adam.json");
 		});
 	}
 }

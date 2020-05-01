@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -36,6 +37,19 @@ public class GridManager : MonoBehaviour
         Vector3 lastSize;
         
         Debug.Log("no classes = " + classes.Length);
+        
+        var lifelines = SerializationManager.LoadElementsFromFile("./Adam.json");
+        
+        Regex reg = new Regex(@".*\..*\.(.*)");
+        
+        foreach (var classObject in classes)
+        {
+	        var match = reg.Match(classObject.name);
+	        if (!lifelines.Contains(match.Groups[1].Value))
+	        {
+		        classObject.SetActive(false);
+	        }
+        }
         
         sets.Add(new List<Tuple<GameObject, GameObject>>());
         sets.Add(new List<Tuple<GameObject, GameObject>>());

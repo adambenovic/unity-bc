@@ -7,9 +7,9 @@ public class SerializationManager : MonoBehaviour
 {
     public static string LifelineType = "uml:Lifeline";
     
-    public static void LoadElementsFromFile(string path)
+    public static List<string> LoadElementsFromFile(string path)
     {
-        if (path == null || path.Length == 0) return;
+        if (path == null || path.Length == 0) return new List<string>();
         
         // 1) Load JSON from FILE
         string fileContent = File.ReadAllText(path);
@@ -24,5 +24,7 @@ public class SerializationManager : MonoBehaviour
                 lifelines.Add((string)element["name"]);
             }
         }
+
+        return lifelines;
     }
 }
