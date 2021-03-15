@@ -19,7 +19,9 @@ public class GridManager : MonoBehaviour
     public GameObjectEvent triggerMinusAction;
     public GameObjectEvent triggerOpenFileButton;
 
-    private List<GameObject> classesFromFile = new List<GameObject>();
+    private ClassDiagram diagram;
+
+    private Dictionary<string, GameObject> classesFromFile = new Dictionary<string, GameObject>();
     private List<int> selected;
     
     private List<string> classNamesFromFile;
@@ -32,14 +34,13 @@ public class GridManager : MonoBehaviour
     private Coroutine clickRoutine;
     private bool clickRoutineRunning;
 
-    public void GridGenerate()
+    public void GridGenerate(ClassDiagram diagram)
     {
+	    this.diagram = diagram;
 	    gridUnits =  transform.Find("GridUnits");
-	    var graphPosition = GameObject.FindGameObjectWithTag("ClassDiagram").GetComponent<RectTransform>().rect;
+	    var graphPosition = diagram.GetComponent<RectTransform>().rect;
         var xStart = graphPosition.width;
         var yStart = graphPosition.height;
-        Vector3 lastPos;
-        Vector3 lastSize;
 
         GameObject plus = Instantiate(plusButton, gridUnits);
 	    plus.GetComponent<GridManager>().triggerPlusAction.AddListener(plusAction);
@@ -67,17 +68,15 @@ public class GridManager : MonoBehaviour
 			    // TODO add error message popup
 			    return;
 		    }
-		    
-		    var classes = GameObject.FindGameObjectsWithTag("Class");
-	    
+
 		    Regex reg = new Regex(@".*\..*\.(.*)");
         
-		    foreach (var classObject in classes)
+		    foreach (var classObject in diagram.Nodes)
 		    {
-			    var match = reg.Match(classObject.name);
+			    var match = reg.Match(classObject.Key);
 			    if (classNamesFromFile.Contains(match.Groups[1].Value))
 			    {
-				    classesFromFile.Add(classObject);
+				    classesFromFile.Add(classObject.Key, classObject.Value);
 				    classNamesFromFile.Remove(match.Groups[1].Value);
 			    }
 		    }
@@ -99,7 +98,25 @@ public class GridManager : MonoBehaviour
 	    Debug.Log("Minus action");
 	    foreach (var classObject in classesFromFile)
 	    {
-		    classObject.SetActive(false);
+		    foreach (var relationship in diagram.Relationshipis)
+		    {
+			    Debug.Log(relationship.type);
+			    if (relationship.type == "specialization")
+			    {
+				    if (relationship.from.name == classObject.Value.name || relationship.to.name == classObject.Value.name)
+				    {
+					    relationship.edge.SetActive(false);
+					    relationship.from.SetActive(false);
+				    }
+
+				    if (relationship.to.name == classObject.Value.name)
+				    {
+					    relationship.to.SetActive(false);
+				    }
+			    }
+		    }
+		    
+		    classObject.Value.SetActive(false);
 	    }
     }
 

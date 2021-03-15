@@ -64,7 +64,6 @@ public class WSClient : MonoBehaviour
 		if (type == "class")
 		{
 			CreateClassDiagram(data);
-			CreateGrid();
 		}
 		else if (type == "package")
 		{
@@ -169,6 +168,10 @@ public class WSClient : MonoBehaviour
 			var cdGraph = cdGo.GetComponent<ClassDiagram>();
 			cdGraph.client = this;
 			cdGraph.Load(data);
+
+			var dGrid = Instantiate(diagramGridPrefab, grid);
+			var cdGrid = dGrid.GetComponent<GridManager>();
+			cdGrid.GridGenerate(cdGraph);
 		});
 	}
 
@@ -298,16 +301,5 @@ public class WSClient : MonoBehaviour
 	private void OnDestroy()
 	{
 		ws.Close();
-	}
-
-	private void CreateGrid()
-	{
-		
-		queue.Enqueue(() =>
-		{
-			var dGrid = Instantiate(diagramGridPrefab, grid);
-			var cdGrid = dGrid.GetComponent<GridManager>();
-			cdGrid.GridGenerate();
-		});
 	}
 }

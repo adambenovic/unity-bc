@@ -14,6 +14,7 @@
         <e p="GridManager.cs" t="Include" />
         <e p="IDEManager.cs" t="Include" />
         <e p="PackageDiagram.cs" t="Include" />
+        <e p="Relationship.cs" t="Include" />
         <e p="SerializationManager.cs" t="Include" />
         <e p="StandaloneFileBrowser" t="Include">
           <e p="IStandaloneFileBrowser.cs" t="Include" />

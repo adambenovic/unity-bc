@@ -1,9 +1,7 @@
-﻿using Microsoft.Msagl.Core.Layout;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Data;
 using TMPro;
 using UnityEngine;
 
@@ -12,7 +10,9 @@ public class ClassDiagram : Diagram
 	public GameObject association;
 	public GameObject specialization;
 	public GameObject implements;
-	
+
+	private List<Relationship> relationshipis = new List<Relationship>();
+
 	protected override void Awake()
 	{
 		base.Awake();
@@ -35,21 +35,27 @@ public class ClassDiagram : Diagram
 			var qpIndex = cls.Name.LastIndexOf('.');
 			var qp = qpIndex != -1 ? $"{cls.Name.Substring(0, qpIndex)}\n" : "";
 			header.GetComponent<TextMeshProUGUI>().text = $"<size=75%>{stereotype}{qp}</size>" + cls.Value["name"].ToString();
+
 			foreach (JProperty attr in cls.Value["attributes"])
 			{
 				attributes.GetComponent<TextMeshProUGUI>().text += attr.Name + "\n";
 			}
+
 			foreach (JProperty method in cls.Value["methods"])
 			{
 				methods.GetComponent<TextMeshProUGUI>().text += $"{method.Name}({String.Join(", ", method.Value["argnames"].Values<string>())})\n";
 			}
+
 			nodes.Add(cls.Name, node);
+
 			yield return new WaitForFixedUpdate();
 		}
+
 		foreach (JObject rel in data["relationships"])
 		{
 			var type = rel["type"].ToString();
 			var prefab = edgePrefab;
+
 			if (type == "association")
 			{
 				prefab = association;
@@ -62,7 +68,10 @@ public class ClassDiagram : Diagram
 			{
 				prefab = specialization;
 			}
-			AddEdge(nodes[rel["from"].ToString()], nodes[rel["to"].ToString()], prefab);
+
+			var edge = AddEdge(nodes[rel["from"].ToString()], nodes[rel["to"].ToString()], prefab);
+			relationshipis.Add(new Relationship(edge, nodes[rel["from"].ToString()], nodes[rel["to"].ToString()], type));
+
 			yield return new WaitForFixedUpdate();
 		}
 		LoadFileInfo(data["fileMap"]);
@@ -70,4 +79,15 @@ public class ClassDiagram : Diagram
 		Layout();
 	}
 
+	public Dictionary<string, GameObject> Nodes
+	{
+		get => nodes;
+		set => nodes = value;
+	}
+
+	public List<Relationship> Relationshipis
+	{
+		get => relationshipis;
+		set => relationshipis = value;
+	}
 }
