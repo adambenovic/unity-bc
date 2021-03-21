@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using TMPro;
 using UnityEngine;
 using SFB;
+using TMPro;
 
 public class GridManager : MonoBehaviour
 {
@@ -24,7 +24,7 @@ public class GridManager : MonoBehaviour
     private Dictionary<string, GameObject> classesFromFile = new Dictionary<string, GameObject>();
     private List<int> selected;
     
-    private List<string> classNamesFromFile;
+    private Dictionary<string, List<string>> rawClassesFromFile;
 
     private static readonly ExtensionFilter[] JsonExtension = new ExtensionFilter[]
     {
@@ -37,7 +37,7 @@ public class GridManager : MonoBehaviour
     public void GridGenerate(ClassDiagram diagram)
     {
 	    this.diagram = diagram;
-	    gridUnits =  transform.Find("GridUnits");
+	    gridUnits = transform.Find("GridUnits");
 	    var graphPosition = diagram.GetComponent<RectTransform>().rect;
         var xStart = graphPosition.width;
         var yStart = graphPosition.height;
@@ -61,9 +61,9 @@ public class GridManager : MonoBehaviour
 
 	    if (paths.Length > 0)
 	    {
-		    classNamesFromFile = SerializationManager.LoadElementsFromFile(paths[0]);
+		    rawClassesFromFile = SerializationManager.LoadElementsFromFile(paths[0]);
 		    
-		    if (classNamesFromFile == null || classNamesFromFile.Count < 1)
+		    if (rawClassesFromFile == null || rawClassesFromFile.Count < 1)
 		    {
 			    // TODO add error message popup
 			    return;
@@ -74,16 +74,16 @@ public class GridManager : MonoBehaviour
 		    foreach (var classObject in diagram.Nodes)
 		    {
 			    var match = reg.Match(classObject.Key);
-			    if (classNamesFromFile.Contains(match.Groups[1].Value))
+			    if (rawClassesFromFile.ContainsKey(match.Groups[1].Value))
 			    {
 				    classesFromFile.Add(classObject.Key, classObject.Value);
-				    classNamesFromFile.Remove(match.Groups[1].Value);
+				    rawClassesFromFile.Remove(match.Groups[1].Value);
 			    }
 		    }
 
-		    foreach (var classNamme in classNamesFromFile)
+		    foreach (var classFromFile in rawClassesFromFile)
 		    {
-			    Debug.Log("Tried to work with not yet existing class " + classNamme);
+			    Debug.Log("Tried to work with not yet existing class " + classFromFile.Key);
 		    }
 	    }
     }
@@ -91,8 +91,54 @@ public class GridManager : MonoBehaviour
     private void plusAction(GameObject go)
     {
 	    Debug.Log("Plus action");
+	    List<string> toBeRemoved = new List<string>();
+	    foreach (var classObject in rawClassesFromFile)
+	    {
+		    var node = diagram.AddNode();
+		    node.name = classObject.Key;
+		    var background = node.transform.Find("Background");
+		    var header = background.Find("Header");
+		    var methods = background.Find("Methods");
+		    var type = "class";
+		    var stereotype = type != "class" ? $"<<{type}>>\n" : "";
+		    var qpIndex = classObject.Key.LastIndexOf('.');
+		    var qp = qpIndex != -1 ? $"{classObject.Key.Substring(0, qpIndex)}\n" : "";
+		    header.GetComponent<TextMeshProUGUI>().text = $"<size=75%>{stereotype}{qp}</size>" + classObject.Key;
+
+		    foreach (var method in classObject.Value)
+		    {
+			    methods.GetComponent<TextMeshProUGUI>().text += $"{method}()\n";
+		    }
+
+		    diagram.AddNode(classObject.Key, node);
+		    classesFromFile.Add(classObject.Key, node);
+		    toBeRemoved.Add(classObject.Key);
+	    }
+
+	    foreach (var toRemove in toBeRemoved)
+	    {
+		    rawClassesFromFile.Remove(toRemove);
+	    }
+
+	    foreach (var classObject in classesFromFile)
+	    {
+		    foreach (var relationship in diagram.Relationshipis)
+		    {
+			    if (relationship.type == "specialization")
+			    {
+				    if (relationship.from.name == classObject.Value.name)
+				    {
+					    relationship.edge.SetActive(true);
+				    }
+			    }
+		    }
+		    
+		    classObject.Value.SetActive(true);
+	    }
+
+	    diagram.Layout();
     }
-    
+
     private void minusAction(GameObject go)
     {
 	    Debug.Log("Minus action");
@@ -100,22 +146,23 @@ public class GridManager : MonoBehaviour
 	    {
 		    foreach (var relationship in diagram.Relationshipis)
 		    {
-			    Debug.Log(relationship.type);
 			    if (relationship.type == "specialization")
 			    {
 				    if (relationship.from.name == classObject.Value.name || relationship.to.name == classObject.Value.name)
 				    {
 					    relationship.edge.SetActive(false);
 					    relationship.from.SetActive(false);
+					    Debug.Log("from: " + relationship.from.name);
 				    }
 
 				    if (relationship.to.name == classObject.Value.name)
 				    {
 					    relationship.to.SetActive(false);
+					    Debug.Log("to: " + relationship.to.name);
 				    }
 			    }
 		    }
-		    
+
 		    classObject.Value.SetActive(false);
 	    }
     }

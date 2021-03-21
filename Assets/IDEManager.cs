@@ -15,7 +15,6 @@ public class IDEManager : MonoBehaviour
 	private List<Subset> _datasets = new List<Subset>();
 	public void Manage(GameObject go, bool isNextDataset)
 	{
-		Debug.Log(isNextDataset);
 		if(CheckHighlighted(go))
 			return;
 		var index = AddToSet(go, isNextDataset);

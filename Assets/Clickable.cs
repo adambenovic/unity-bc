@@ -58,10 +58,8 @@ public class Clickable : MonoBehaviour
 	{
 		if (_ctrlDown)
 		{
-			Debug.Log("isNextDataset = " + _isNextDataset);
 			triggerCtrlAction.Invoke(gameObject, _isNextDataset);
 			_isDone = true;
-			Debug.Log("Is Done!");
 		}
 			
 		else
@@ -88,7 +86,6 @@ public class Clickable : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.LeftControl))
 		{
-			Debug.Log("We setting true");
 			_ctrlDown = true;
 			_isNextDataset = true;
 			_nextDataset = Time.time + _nextDatasetLimit;
@@ -109,14 +106,12 @@ public class Clickable : MonoBehaviour
 		
 		if (_isNextDataset && _isDone)
 		{
-			Debug.Log("Everything falls false");
 			_isNextDataset = false;
 			_isDone = false;
 		}
 		
 		if (_ctrlDown && Time.time > _nextDataset && !_isNextDataset)
 		{
-			Debug.Log("We update to true again");
 			_isNextDataset = true;
 			_nextDataset = Time.time + _nextDatasetLimit;
 		}

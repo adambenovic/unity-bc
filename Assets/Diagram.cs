@@ -48,4 +48,11 @@ public abstract class Diagram : Graph
 	}
 
 	protected abstract IEnumerator Loader(JObject data);
+
+	public Dictionary<string, GameObject> AddNode(string name, GameObject node)
+	{
+		nodes.Add(name, node);
+
+		return nodes;
+	}
 }
