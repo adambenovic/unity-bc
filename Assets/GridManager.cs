@@ -17,22 +17,18 @@ public class GridManager : MonoBehaviour
     public GameObjectEvent triggerSelectAction;
     public GameObjectEvent triggerPlusAction;
     public GameObjectEvent triggerMinusAction;
-    public GameObjectEvent triggerOpenFileButton;
+    public GameObjectEvent triggerOpenFileButton;    
+    private Coroutine clickRoutine;
+    private bool clickRoutineRunning;
 
     private ClassDiagram diagram;
-
+    private Dictionary<string, List<string>> rawClassesFromFile = new Dictionary<string, List<string>>();
     private Dictionary<string, GameObject> classesFromFile = new Dictionary<string, GameObject>();
-    private List<int> selected;
-    
-    private Dictionary<string, List<string>> rawClassesFromFile;
 
     private static readonly ExtensionFilter[] JsonExtension = new ExtensionFilter[]
     {
 	    new ExtensionFilter("JSON", "json"),
     };
-    
-    private Coroutine clickRoutine;
-    private bool clickRoutineRunning;
 
     public void GridGenerate(ClassDiagram diagram)
     {
@@ -61,6 +57,8 @@ public class GridManager : MonoBehaviour
 
 	    if (paths.Length > 0)
 	    {
+		    rawClassesFromFile.Clear();
+		    classesFromFile.Clear();
 		    rawClassesFromFile = SerializationManager.LoadElementsFromFile(paths[0]);
 		    
 		    if (rawClassesFromFile == null || rawClassesFromFile.Count < 1)
@@ -79,11 +77,6 @@ public class GridManager : MonoBehaviour
 				    classesFromFile.Add(classObject.Key, classObject.Value);
 				    rawClassesFromFile.Remove(match.Groups[1].Value);
 			    }
-		    }
-
-		    foreach (var classFromFile in rawClassesFromFile)
-		    {
-			    Debug.Log("Tried to work with not yet existing class " + classFromFile.Key);
 		    }
 	    }
     }
@@ -152,19 +145,19 @@ public class GridManager : MonoBehaviour
 				    {
 					    relationship.edge.SetActive(false);
 					    relationship.from.SetActive(false);
-					    Debug.Log("from: " + relationship.from.name);
 				    }
 
 				    if (relationship.to.name == classObject.Value.name)
 				    {
 					    relationship.to.SetActive(false);
-					    Debug.Log("to: " + relationship.to.name);
 				    }
 			    }
 		    }
 
 		    classObject.Value.SetActive(false);
 	    }
+	    
+	    diagram.Layout();
     }
 
     IEnumerator SingleClick()
