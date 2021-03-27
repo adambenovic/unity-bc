@@ -65,16 +65,28 @@ public class Graph : MonoBehaviour
 		return go;
 	}
 
+	public GameObject AddNode(GameObject go)
+	{
+		if (!graph.Nodes.Contains(go.GetComponent<UNode>().GraphNode))
+		{
+			Canvas.ForceUpdateCanvases();
+
+			var unode = go.GetComponent<UNode>();
+			double w = ToGraphSpace(unode.Size.width);
+			double h = ToGraphSpace(unode.Size.height);
+
+			Node node = new Node(CurveFactory.CreateRectangle(w, h, new Point()));
+			node.UserData = go;
+			unode.GraphNode = node;
+			graph.Nodes.Add(node);
+		}
+
+		return go;
+	}
+	
 	public void RemoveNode(GameObject node)
 	{
-		var graphNode = node.GetComponent<UNode>().GraphNode;
-		foreach (var edge in graphNode.Edges)
-		{
-			GameObject.Destroy((GameObject)edge.UserData);
-			//in MSAGL edges are automatically removed, only UnityObjects have to be removed
-		}
-		graph.Nodes.Remove(graphNode);
-		GameObject.Destroy(node);
+		graph.Nodes.Remove(node.GetComponent<UNode>().GraphNode);
 	}
 
 	public GameObject AddEdge(GameObject from, GameObject to)
@@ -99,7 +111,6 @@ public class Graph : MonoBehaviour
 	public void RemoveEdge(GameObject edge)
 	{
 		graph.Edges.Remove(edge.GetComponent<UEdge>().GraphEdge);
-		GameObject.Destroy(edge);
 	}
 
 	double ToGraphSpace(float x)

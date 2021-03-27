@@ -51,7 +51,13 @@ public abstract class Diagram : Graph
 
 	public Dictionary<string, GameObject> AddNode(string name, GameObject node)
 	{
-		nodes.Add(name, node);
+		if (!nodes.ContainsKey(name))
+		{
+			nodes.Add(name, node);
+		}
+
+		AddNode(node);
+		node.SetActive(true);
 
 		return nodes;
 	}

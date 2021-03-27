@@ -68,7 +68,7 @@ public class GridManager : MonoBehaviour
 		    }
 
 		    Regex reg = new Regex(@".*\..*\.(.*)");
-        
+
 		    foreach (var classObject in diagram.Nodes)
 		    {
 			    var match = reg.Match(classObject.Key);
@@ -77,13 +77,17 @@ public class GridManager : MonoBehaviour
 				    classesFromFile.Add(classObject.Key, classObject.Value);
 				    rawClassesFromFile.Remove(match.Groups[1].Value);
 			    }
+			    else if (rawClassesFromFile.ContainsKey(classObject.Key))
+			    {
+				    classesFromFile.Add(classObject.Key, classObject.Value);
+				    rawClassesFromFile.Remove(classObject.Key);
+			    }
 		    }
 	    }
     }
 
     private void plusAction(GameObject go)
     {
-	    Debug.Log("Plus action");
 	    List<string> toBeRemoved = new List<string>();
 	    foreach (var classObject in rawClassesFromFile)
 	    {
@@ -103,9 +107,9 @@ public class GridManager : MonoBehaviour
 			    methods.GetComponent<TextMeshProUGUI>().text += $"{method}()\n";
 		    }
 
-		    diagram.AddNode(classObject.Key, node);
-		    classesFromFile.Add(classObject.Key, node);
-		    toBeRemoved.Add(classObject.Key);
+		    diagram.AddNode(node.name, node);
+		    classesFromFile.Add(node.name, node);
+		    toBeRemoved.Add(node.name);
 	    }
 
 	    foreach (var toRemove in toBeRemoved)
@@ -115,26 +119,30 @@ public class GridManager : MonoBehaviour
 
 	    foreach (var classObject in classesFromFile)
 	    {
-		    foreach (var relationship in diagram.Relationshipis)
+			diagram.AddNode(classObject.Key, classObject.Value);
+
+			foreach (var relationship in diagram.Relationshipis)
 		    {
 			    if (relationship.type == "specialization")
 			    {
-				    if (relationship.from.name == classObject.Value.name)
+				    if (relationship.from.name == classObject.Value.name && !relationship.edge.activeSelf)
 				    {
-					    relationship.edge.SetActive(true);
+					    Debug.Log("relationship from " + relationship.from.name + " to " + relationship.to.name);
+					    relationship.edge = diagram.AddEdge(relationship.from, relationship.to, diagram.specialization);
 				    }
 			    }
 		    }
-		    
-		    classObject.Value.SetActive(true);
 	    }
 
+	    diagram.UpdateGraph();
 	    diagram.Layout();
     }
 
     private void minusAction(GameObject go)
     {
-	    Debug.Log("Minus action");
+	    List<GameObject> removedNodes = new List<GameObject>();
+	    List<GameObject> removedEdges = new List<GameObject>();
+
 	    foreach (var classObject in classesFromFile)
 	    {
 		    foreach (var relationship in diagram.Relationshipis)
@@ -143,20 +151,42 @@ public class GridManager : MonoBehaviour
 			    {
 				    if (relationship.from.name == classObject.Value.name || relationship.to.name == classObject.Value.name)
 				    {
-					    relationship.edge.SetActive(false);
-					    relationship.from.SetActive(false);
+					    if (!removedEdges.Contains(relationship.edge))
+					    {
+						    removedEdges.Add(relationship.edge);
+					    }
+					    
+					    if (!removedNodes.Contains(relationship.from))
+					    {
+						    removedNodes.Add(relationship.from);
+					    }
 				    }
 
-				    if (relationship.to.name == classObject.Value.name)
+				    if (relationship.to.name == classObject.Value.name && !removedNodes.Contains(relationship.edge))
 				    {
-					    relationship.to.SetActive(false);
+					    removedNodes.Add(relationship.to);
 				    }
 			    }
 		    }
 
-		    classObject.Value.SetActive(false);
+		    if (!removedNodes.Contains(classObject.Value))
+		    {
+			    removedNodes.Add(classObject.Value);
+		    }
 	    }
-	    
+
+	    foreach (var removed in removedNodes)
+	    {
+		    diagram.RemoveNode(removed);
+		    removed.SetActive(false);
+	    }
+
+	    foreach (var removed in removedEdges)
+	    {
+		    diagram.RemoveEdge(removed);
+		    removed.SetActive(false);
+	    }
+
 	    diagram.Layout();
     }
 
