@@ -1,19 +1,503 @@
 [
-{ "XmiId" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=", "XmiType" : "uml:Interaction", "lifeline" : [{ "XmiIdRef" : "MTc3NTI2Nzg0dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=" }, { "XmiIdRef" : "NzQ5NjA1ODg4dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=" }, { "XmiIdRef" : "MTMyMTY4NDk5MnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, { "XmiIdRef" : "MTg5Mzc2NDA5NnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }], "message" : [{ "XmiIdRef" : "LTE4MjkxMjQwOTZ1bWw6TWVzc2FnZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, { "XmiIdRef" : "LTEyNTcwNDQ5OTJ1bWw6TWVzc2FnZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, { "XmiIdRef" : "LTY4NDk2NTg4OHVtbDpNZXNzYWdlMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=" }, { "XmiIdRef" : "LTExMjg4Njc4NHVtbDpNZXNzYWdlMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=" }], "fragment" : [{ "XmiIdRef" : "LTUzNjAwMDY0MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, { "XmiIdRef" : "LTQyOTI4MjU2MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, { "XmiIdRef" : "LTMyMjU2NDQ4MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, { "XmiIdRef" : "LTIxNTg0NjQwMHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, { "XmiIdRef" : "LTEwOTEyODMyMHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, { "XmiIdRef" : "LTI0MTAyNDB1bWw6T2NjdXJyZW5jZVNwZWNpZmljYXRpb24wMy8yMS8yMDIxIDEzOjI3OjM2LjI2Nw==" }, { "XmiIdRef" : "MTA0MzA3ODQwdW1sOk9jY3VycmVuY2VTcGVjaWZpY2F0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=" }, { "XmiIdRef" : "MjExMDI1OTIwdW1sOk9jY3VycmVuY2VTcGVjaWZpY2F0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=" }], "formalGate" : [], "covered" : [{ "XmiIdRef" : "MTc3NTI2Nzg0dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=" }, { "XmiIdRef" : "NzQ5NjA1ODg4dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=" }, { "XmiIdRef" : "MTMyMTY4NDk5MnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, { "XmiIdRef" : "MTg5Mzc2NDA5NnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }], "generalOrdering" : [], "name" : "", "ownedElement" : [{ "XmiIdRef" : "LTE4MjkxMjQwOTZ1bWw6TWVzc2FnZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, { "XmiIdRef" : "LTEyNTcwNDQ5OTJ1bWw6TWVzc2FnZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, { "XmiIdRef" : "LTY4NDk2NTg4OHVtbDpNZXNzYWdlMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=" }, { "XmiIdRef" : "LTExMjg4Njc4NHVtbDpNZXNzYWdlMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=" }, { "XmiIdRef" : "MTc3NTI2Nzg0dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=" }, { "XmiIdRef" : "NzQ5NjA1ODg4dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=" }, { "XmiIdRef" : "MTMyMTY4NDk5MnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, { "XmiIdRef" : "MTg5Mzc2NDA5NnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, { "XmiIdRef" : "LTUzNjAwMDY0MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, { "XmiIdRef" : "LTQyOTI4MjU2MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, { "XmiIdRef" : "LTMyMjU2NDQ4MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, { "XmiIdRef" : "LTIxNTg0NjQwMHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, { "XmiIdRef" : "LTEwOTEyODMyMHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, { "XmiIdRef" : "LTI0MTAyNDB1bWw6T2NjdXJyZW5jZVNwZWNpZmljYXRpb24wMy8yMS8yMDIxIDEzOjI3OjM2LjI2Nw==" }, { "XmiIdRef" : "MTA0MzA3ODQwdW1sOk9jY3VycmVuY2VTcGVjaWZpY2F0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=" }, { "XmiIdRef" : "MjExMDI1OTIwdW1sOk9jY3VycmVuY2VTcGVjaWZpY2F0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=" }], "ownedComment" : [], "diElement" : [], "dgElement" : [], "ChildXmiElement" : [] },
-{ "XmiId" : "MTc3NTI2Nzg0dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=", "XmiType" : "uml:Lifeline", "coveredBy" : [{ "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }], "interaction" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "name" : "ClassDiagram", "owner" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "ownedElement" : [], "ownedComment" : [], "diElement" : [], "dgElement" : [], "ChildXmiElement" : [] },
-{ "XmiId" : "NzQ5NjA1ODg4dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=", "XmiType" : "uml:Lifeline", "coveredBy" : [{ "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }], "interaction" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "name" : "Helpers", "owner" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "ownedElement" : [], "ownedComment" : [], "diElement" : [], "dgElement" : [], "ChildXmiElement" : [] },
-{ "XmiId" : "MTMyMTY4NDk5MnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3", "XmiType" : "uml:Lifeline", "coveredBy" : [{ "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }], "interaction" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "name" : "PyreverseRun", "owner" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "ownedElement" : [], "ownedComment" : [], "diElement" : [], "dgElement" : [], "ChildXmiElement" : [] },
-{ "XmiId" : "MTg5Mzc2NDA5NnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3", "XmiType" : "uml:Lifeline", "coveredBy" : [{ "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }], "interaction" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "name" : "SomeNewClass", "owner" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "ownedElement" : [], "ownedComment" : [], "diElement" : [], "dgElement" : [], "ChildXmiElement" : [] },
-{ "XmiId" : "LTE4MjkxMjQwOTZ1bWw6TWVzc2FnZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3", "XmiType" : "uml:Message", "messageKind_" : 0, "messageSort" : 0, "receiveEvent" : { "XmiIdRef" : "LTQyOTI4MjU2MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, "sendEvent" : { "XmiIdRef" : "LTUzNjAwMDY0MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, "interaction" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "name" : "calculateMetrics", "owner" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "ownedElement" : [], "ownedComment" : [], "diElement" : [], "dgElement" : [], "ChildXmiElement" : [] },
-{ "XmiId" : "LTUzNjAwMDY0MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3", "XmiType" : "uml:OccurrenceSpecification", "toBefore" : [], "toAfter" : [], "covered" : [{ "XmiIdRef" : "MTc3NTI2Nzg0dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=" }], "generalOrdering" : [], "enclosingInteraction" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "name" : "", "owner" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "ownedElement" : [], "ownedComment" : [], "diElement" : [], "dgElement" : [], "ChildXmiElement" : [] },
-{ "XmiId" : "LTQyOTI4MjU2MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3", "XmiType" : "uml:OccurrenceSpecification", "toBefore" : [], "toAfter" : [], "covered" : [{ "XmiIdRef" : "NzQ5NjA1ODg4dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=" }], "generalOrdering" : [], "enclosingInteraction" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "name" : "", "owner" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "ownedElement" : [], "ownedComment" : [], "diElement" : [], "dgElement" : [], "ChildXmiElement" : [] },
-{ "XmiId" : "LTEyNTcwNDQ5OTJ1bWw6TWVzc2FnZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3", "XmiType" : "uml:Message", "messageKind_" : 0, "messageSort" : 0, "receiveEvent" : { "XmiIdRef" : "LTIxNTg0NjQwMHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, "sendEvent" : { "XmiIdRef" : "LTMyMjU2NDQ4MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, "interaction" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "name" : "orderBlocks", "owner" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "ownedElement" : [], "ownedComment" : [], "diElement" : [], "dgElement" : [], "ChildXmiElement" : [] },
-{ "XmiId" : "LTMyMjU2NDQ4MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3", "XmiType" : "uml:OccurrenceSpecification", "toBefore" : [], "toAfter" : [], "covered" : [{ "XmiIdRef" : "NzQ5NjA1ODg4dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=" }], "generalOrdering" : [], "enclosingInteraction" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "name" : "", "owner" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "ownedElement" : [], "ownedComment" : [], "diElement" : [], "dgElement" : [], "ChildXmiElement" : [] },
-{ "XmiId" : "LTIxNTg0NjQwMHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3", "XmiType" : "uml:OccurrenceSpecification", "toBefore" : [], "toAfter" : [], "covered" : [{ "XmiIdRef" : "MTMyMTY4NDk5MnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }], "generalOrdering" : [], "enclosingInteraction" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "name" : "", "owner" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "ownedElement" : [], "ownedComment" : [], "diElement" : [], "dgElement" : [], "ChildXmiElement" : [] },
-{ "XmiId" : "LTY4NDk2NTg4OHVtbDpNZXNzYWdlMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=", "XmiType" : "uml:Message", "messageKind_" : 0, "messageSort" : 0, "receiveEvent" : { "XmiIdRef" : "LTI0MTAyNDB1bWw6T2NjdXJyZW5jZVNwZWNpZmljYXRpb24wMy8yMS8yMDIxIDEzOjI3OjM2LjI2Nw==" }, "sendEvent" : { "XmiIdRef" : "LTEwOTEyODMyMHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }, "interaction" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "name" : "run", "owner" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "ownedElement" : [], "ownedComment" : [], "diElement" : [], "dgElement" : [], "ChildXmiElement" : [] },
-{ "XmiId" : "LTEwOTEyODMyMHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3", "XmiType" : "uml:OccurrenceSpecification", "toBefore" : [], "toAfter" : [], "covered" : [{ "XmiIdRef" : "MTMyMTY4NDk5MnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }], "generalOrdering" : [], "enclosingInteraction" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "name" : "", "owner" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "ownedElement" : [], "ownedComment" : [], "diElement" : [], "dgElement" : [], "ChildXmiElement" : [] },
-{ "XmiId" : "LTI0MTAyNDB1bWw6T2NjdXJyZW5jZVNwZWNpZmljYXRpb24wMy8yMS8yMDIxIDEzOjI3OjM2LjI2Nw==", "XmiType" : "uml:OccurrenceSpecification", "toBefore" : [], "toAfter" : [], "covered" : [{ "XmiIdRef" : "MTMyMTY4NDk5MnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }], "generalOrdering" : [], "enclosingInteraction" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "name" : "", "owner" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "ownedElement" : [], "ownedComment" : [], "diElement" : [], "dgElement" : [], "ChildXmiElement" : [] },
-{ "XmiId" : "LTExMjg4Njc4NHVtbDpNZXNzYWdlMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=", "XmiType" : "uml:Message", "messageKind_" : 0, "messageSort" : 0, "receiveEvent" : { "XmiIdRef" : "MjExMDI1OTIwdW1sOk9jY3VycmVuY2VTcGVjaWZpY2F0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=" }, "sendEvent" : { "XmiIdRef" : "MTA0MzA3ODQwdW1sOk9jY3VycmVuY2VTcGVjaWZpY2F0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=" }, "interaction" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "name" : "someNewMethod", "owner" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "ownedElement" : [], "ownedComment" : [], "diElement" : [], "dgElement" : [], "ChildXmiElement" : [] },
-{ "XmiId" : "MTA0MzA3ODQwdW1sOk9jY3VycmVuY2VTcGVjaWZpY2F0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=", "XmiType" : "uml:OccurrenceSpecification", "toBefore" : [], "toAfter" : [], "covered" : [{ "XmiIdRef" : "MTMyMTY4NDk5MnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }], "generalOrdering" : [], "enclosingInteraction" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "name" : "", "owner" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "ownedElement" : [], "ownedComment" : [], "diElement" : [], "dgElement" : [], "ChildXmiElement" : [] },
-{ "XmiId" : "MjExMDI1OTIwdW1sOk9jY3VycmVuY2VTcGVjaWZpY2F0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=", "XmiType" : "uml:OccurrenceSpecification", "toBefore" : [], "toAfter" : [], "covered" : [{ "XmiIdRef" : "MTg5Mzc2NDA5NnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3" }], "generalOrdering" : [], "enclosingInteraction" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "name" : "", "owner" : { "XmiIdRef" : "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=" }, "ownedElement" : [], "ownedComment" : [], "diElement" : [], "dgElement" : [], "ChildXmiElement" : [] },
+  {
+    "XmiId": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY=",
+    "XmiType": "uml:Interaction",
+    "lifeline": [
+      {
+        "XmiIdRef": "MTc3NTI2Nzg0dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc="
+      },
+      {
+        "XmiIdRef": "NzQ5NjA1ODg4dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc="
+      },
+      {
+        "XmiIdRef": "MTMyMTY4NDk5MnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      },
+      {
+        "XmiIdRef": "MTg5Mzc2NDA5NnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      }
+    ],
+    "message": [
+      {
+        "XmiIdRef": "LTE4MjkxMjQwOTZ1bWw6TWVzc2FnZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      },
+      {
+        "XmiIdRef": "LTEyNTcwNDQ5OTJ1bWw6TWVzc2FnZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      },
+      {
+        "XmiIdRef": "LTY4NDk2NTg4OHVtbDpNZXNzYWdlMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc="
+      },
+      {
+        "XmiIdRef": "LTExMjg4Njc4NHVtbDpNZXNzYWdlMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc="
+      }
+    ],
+    "fragment": [
+      {
+        "XmiIdRef": "LTUzNjAwMDY0MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      },
+      {
+        "XmiIdRef": "LTQyOTI4MjU2MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      },
+      {
+        "XmiIdRef": "LTMyMjU2NDQ4MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      },
+      {
+        "XmiIdRef": "LTIxNTg0NjQwMHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      },
+      {
+        "XmiIdRef": "LTEwOTEyODMyMHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      },
+      {
+        "XmiIdRef": "LTI0MTAyNDB1bWw6T2NjdXJyZW5jZVNwZWNpZmljYXRpb24wMy8yMS8yMDIxIDEzOjI3OjM2LjI2Nw=="
+      },
+      {
+        "XmiIdRef": "MTA0MzA3ODQwdW1sOk9jY3VycmVuY2VTcGVjaWZpY2F0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc="
+      },
+      {
+        "XmiIdRef": "MjExMDI1OTIwdW1sOk9jY3VycmVuY2VTcGVjaWZpY2F0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc="
+      }
+    ],
+    "formalGate": [],
+    "covered": [
+      {
+        "XmiIdRef": "MTc3NTI2Nzg0dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc="
+      },
+      {
+        "XmiIdRef": "NzQ5NjA1ODg4dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc="
+      },
+      {
+        "XmiIdRef": "MTMyMTY4NDk5MnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      },
+      {
+        "XmiIdRef": "MTg5Mzc2NDA5NnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      }
+    ],
+    "generalOrdering": [],
+    "name": "",
+    "ownedElement": [
+      {
+        "XmiIdRef": "LTE4MjkxMjQwOTZ1bWw6TWVzc2FnZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      },
+      {
+        "XmiIdRef": "LTEyNTcwNDQ5OTJ1bWw6TWVzc2FnZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      },
+      {
+        "XmiIdRef": "LTY4NDk2NTg4OHVtbDpNZXNzYWdlMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc="
+      },
+      {
+        "XmiIdRef": "LTExMjg4Njc4NHVtbDpNZXNzYWdlMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc="
+      },
+      {
+        "XmiIdRef": "MTc3NTI2Nzg0dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc="
+      },
+      {
+        "XmiIdRef": "NzQ5NjA1ODg4dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc="
+      },
+      {
+        "XmiIdRef": "MTMyMTY4NDk5MnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      },
+      {
+        "XmiIdRef": "MTg5Mzc2NDA5NnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      },
+      {
+        "XmiIdRef": "LTUzNjAwMDY0MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      },
+      {
+        "XmiIdRef": "LTQyOTI4MjU2MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      },
+      {
+        "XmiIdRef": "LTMyMjU2NDQ4MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      },
+      {
+        "XmiIdRef": "LTIxNTg0NjQwMHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      },
+      {
+        "XmiIdRef": "LTEwOTEyODMyMHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      },
+      {
+        "XmiIdRef": "LTI0MTAyNDB1bWw6T2NjdXJyZW5jZVNwZWNpZmljYXRpb24wMy8yMS8yMDIxIDEzOjI3OjM2LjI2Nw=="
+      },
+      {
+        "XmiIdRef": "MTA0MzA3ODQwdW1sOk9jY3VycmVuY2VTcGVjaWZpY2F0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc="
+      },
+      {
+        "XmiIdRef": "MjExMDI1OTIwdW1sOk9jY3VycmVuY2VTcGVjaWZpY2F0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc="
+      }
+    ],
+    "ownedComment": [],
+    "diElement": [],
+    "dgElement": [],
+    "ChildXmiElement": []
+  },
+  {
+    "XmiId": "MTc3NTI2Nzg0dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=",
+    "XmiType": "uml:Lifeline",
+    "coveredBy": [
+      {
+        "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+      }
+    ],
+    "interaction": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "name": "ClassDiagram",
+    "owner": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "ownedElement": [],
+    "ownedComment": [],
+    "diElement": [],
+    "dgElement": [],
+    "ChildXmiElement": []
+  },
+  {
+    "XmiId": "NzQ5NjA1ODg4dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=",
+    "XmiType": "uml:Lifeline",
+    "coveredBy": [
+      {
+        "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+      }
+    ],
+    "interaction": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "name": "Helpers",
+    "owner": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "ownedElement": [],
+    "ownedComment": [],
+    "diElement": [],
+    "dgElement": [],
+    "ChildXmiElement": []
+  },
+  {
+    "XmiId": "MTMyMTY4NDk5MnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3",
+    "XmiType": "uml:Lifeline",
+    "coveredBy": [
+      {
+        "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+      }
+    ],
+    "interaction": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "name": "PyreverseRun",
+    "owner": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "ownedElement": [],
+    "ownedComment": [],
+    "diElement": [],
+    "dgElement": [],
+    "ChildXmiElement": []
+  },
+  {
+    "XmiId": "MTg5Mzc2NDA5NnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3",
+    "XmiType": "uml:Lifeline",
+    "coveredBy": [
+      {
+        "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+      }
+    ],
+    "interaction": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "name": "SomeNewClass",
+    "owner": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "ownedElement": [],
+    "ownedComment": [],
+    "diElement": [],
+    "dgElement": [],
+    "ChildXmiElement": []
+  },
+  {
+    "XmiId": "LTE4MjkxMjQwOTZ1bWw6TWVzc2FnZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3",
+    "XmiType": "uml:Message",
+    "messageKind_": 0,
+    "messageSort": 0,
+    "receiveEvent": {
+      "XmiIdRef": "LTQyOTI4MjU2MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+    },
+    "sendEvent": {
+      "XmiIdRef": "LTUzNjAwMDY0MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+    },
+    "interaction": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "name": "calculateMetrics",
+    "owner": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "ownedElement": [],
+    "ownedComment": [],
+    "diElement": [],
+    "dgElement": [],
+    "ChildXmiElement": []
+  },
+  {
+    "XmiId": "LTUzNjAwMDY0MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3",
+    "XmiType": "uml:OccurrenceSpecification",
+    "toBefore": [],
+    "toAfter": [],
+    "covered": [
+      {
+        "XmiIdRef": "MTc3NTI2Nzg0dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc="
+      }
+    ],
+    "generalOrdering": [],
+    "enclosingInteraction": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "name": "",
+    "owner": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "ownedElement": [],
+    "ownedComment": [],
+    "diElement": [],
+    "dgElement": [],
+    "ChildXmiElement": []
+  },
+  {
+    "XmiId": "LTQyOTI4MjU2MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3",
+    "XmiType": "uml:OccurrenceSpecification",
+    "toBefore": [],
+    "toAfter": [],
+    "covered": [
+      {
+        "XmiIdRef": "NzQ5NjA1ODg4dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc="
+      }
+    ],
+    "generalOrdering": [],
+    "enclosingInteraction": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "name": "",
+    "owner": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "ownedElement": [],
+    "ownedComment": [],
+    "diElement": [],
+    "dgElement": [],
+    "ChildXmiElement": []
+  },
+  {
+    "XmiId": "LTEyNTcwNDQ5OTJ1bWw6TWVzc2FnZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3",
+    "XmiType": "uml:Message",
+    "messageKind_": 0,
+    "messageSort": 0,
+    "receiveEvent": {
+      "XmiIdRef": "LTIxNTg0NjQwMHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+    },
+    "sendEvent": {
+      "XmiIdRef": "LTMyMjU2NDQ4MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+    },
+    "interaction": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "name": "orderBlocks",
+    "owner": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "ownedElement": [],
+    "ownedComment": [],
+    "diElement": [],
+    "dgElement": [],
+    "ChildXmiElement": []
+  },
+  {
+    "XmiId": "LTMyMjU2NDQ4MHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3",
+    "XmiType": "uml:OccurrenceSpecification",
+    "toBefore": [],
+    "toAfter": [],
+    "covered": [
+      {
+        "XmiIdRef": "NzQ5NjA1ODg4dW1sOkxpZmVsaW5lMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc="
+      }
+    ],
+    "generalOrdering": [],
+    "enclosingInteraction": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "name": "",
+    "owner": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "ownedElement": [],
+    "ownedComment": [],
+    "diElement": [],
+    "dgElement": [],
+    "ChildXmiElement": []
+  },
+  {
+    "XmiId": "LTIxNTg0NjQwMHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3",
+    "XmiType": "uml:OccurrenceSpecification",
+    "toBefore": [],
+    "toAfter": [],
+    "covered": [
+      {
+        "XmiIdRef": "MTMyMTY4NDk5MnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      }
+    ],
+    "generalOrdering": [],
+    "enclosingInteraction": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "name": "",
+    "owner": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "ownedElement": [],
+    "ownedComment": [],
+    "diElement": [],
+    "dgElement": [],
+    "ChildXmiElement": []
+  },
+  {
+    "XmiId": "LTY4NDk2NTg4OHVtbDpNZXNzYWdlMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=",
+    "XmiType": "uml:Message",
+    "messageKind_": 0,
+    "messageSort": 0,
+    "receiveEvent": {
+      "XmiIdRef": "LTI0MTAyNDB1bWw6T2NjdXJyZW5jZVNwZWNpZmljYXRpb24wMy8yMS8yMDIxIDEzOjI3OjM2LjI2Nw=="
+    },
+    "sendEvent": {
+      "XmiIdRef": "LTEwOTEyODMyMHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+    },
+    "interaction": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "name": "run",
+    "owner": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "ownedElement": [],
+    "ownedComment": [],
+    "diElement": [],
+    "dgElement": [],
+    "ChildXmiElement": []
+  },
+  {
+    "XmiId": "LTEwOTEyODMyMHVtbDpPY2N1cnJlbmNlU3BlY2lmaWNhdGlvbjAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3",
+    "XmiType": "uml:OccurrenceSpecification",
+    "toBefore": [],
+    "toAfter": [],
+    "covered": [
+      {
+        "XmiIdRef": "MTMyMTY4NDk5MnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      }
+    ],
+    "generalOrdering": [],
+    "enclosingInteraction": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "name": "",
+    "owner": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "ownedElement": [],
+    "ownedComment": [],
+    "diElement": [],
+    "dgElement": [],
+    "ChildXmiElement": []
+  },
+  {
+    "XmiId": "LTI0MTAyNDB1bWw6T2NjdXJyZW5jZVNwZWNpZmljYXRpb24wMy8yMS8yMDIxIDEzOjI3OjM2LjI2Nw==",
+    "XmiType": "uml:OccurrenceSpecification",
+    "toBefore": [],
+    "toAfter": [],
+    "covered": [
+      {
+        "XmiIdRef": "MTMyMTY4NDk5MnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      }
+    ],
+    "generalOrdering": [],
+    "enclosingInteraction": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "name": "",
+    "owner": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "ownedElement": [],
+    "ownedComment": [],
+    "diElement": [],
+    "dgElement": [],
+    "ChildXmiElement": []
+  },
+  {
+    "XmiId": "LTExMjg4Njc4NHVtbDpNZXNzYWdlMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=",
+    "XmiType": "uml:Message",
+    "messageKind_": 0,
+    "messageSort": 0,
+    "receiveEvent": {
+      "XmiIdRef": "MjExMDI1OTIwdW1sOk9jY3VycmVuY2VTcGVjaWZpY2F0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc="
+    },
+    "sendEvent": {
+      "XmiIdRef": "MTA0MzA3ODQwdW1sOk9jY3VycmVuY2VTcGVjaWZpY2F0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc="
+    },
+    "interaction": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "name": "someNewMethod",
+    "owner": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "ownedElement": [],
+    "ownedComment": [],
+    "diElement": [],
+    "dgElement": [],
+    "ChildXmiElement": []
+  },
+  {
+    "XmiId": "MTA0MzA3ODQwdW1sOk9jY3VycmVuY2VTcGVjaWZpY2F0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=",
+    "XmiType": "uml:OccurrenceSpecification",
+    "toBefore": [],
+    "toAfter": [],
+    "covered": [
+      {
+        "XmiIdRef": "MTMyMTY4NDk5MnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      }
+    ],
+    "generalOrdering": [],
+    "enclosingInteraction": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "name": "",
+    "owner": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "ownedElement": [],
+    "ownedComment": [],
+    "diElement": [],
+    "dgElement": [],
+    "ChildXmiElement": []
+  },
+  {
+    "XmiId": "MjExMDI1OTIwdW1sOk9jY3VycmVuY2VTcGVjaWZpY2F0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjc=",
+    "XmiType": "uml:OccurrenceSpecification",
+    "toBefore": [],
+    "toAfter": [],
+    "covered": [
+      {
+        "XmiIdRef": "MTg5Mzc2NDA5NnVtbDpMaWZlbGluZTAzLzIxLzIwMjEgMTM6Mjc6MzYuMjY3"
+      }
+    ],
+    "generalOrdering": [],
+    "enclosingInteraction": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "name": "",
+    "owner": {
+      "XmiIdRef": "NDMwOTY4MzIwdW1sOkludGVyYWN0aW9uMDMvMjEvMjAyMSAxMzoyNzozNi4yNjY="
+    },
+    "ownedElement": [],
+    "ownedComment": [],
+    "diElement": [],
+    "dgElement": [],
+    "ChildXmiElement": []
+  }
 ]

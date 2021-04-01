@@ -10,43 +10,65 @@ public class SerializationManager : MonoBehaviour
     public static string OccourenceType = "uml:OccurrenceSpecification";
     public static string MessageType = "uml:Message";
     
-    public static Dictionary<string, List<string>> LoadElementsFromFile(string path)
+    public static Dictionary<string, RawClass> LoadElementsFromFile(string path)
     {
-        if (path.IsNullOrEmpty()) return new Dictionary<string, List<string>>();
+        Dictionary<string, RawClass> elements = new Dictionary<string, RawClass>();
+        if (path.IsNullOrEmpty()) return elements;
 
         string fileContent = File.ReadAllText(path);
-        Dictionary<string, List<string>> elements = new Dictionary<string, List<string>>();
         dynamic json = JsonConvert.DeserializeObject(fileContent);
 
         foreach (var element in json)
         {
             if (element["XmiType"] == LifelineType)
             {
-                elements.Add((string)element["name"], findAllMethods((string)element["XmiId"], json));
+                List<string> methods = new List<string>();
+                List<string> associations = new List<string>();
+                findAllMethodsAndAssociations((string) element["XmiId"], json, ref methods, ref associations);
+                string name = (string) element["name"];
+                elements.Add(name, new RawClass(name, methods, associations));
             }
         }
 
         return elements;
     }
 
-    private static List<string> findAllMethods(string xmiId, dynamic json)
+    private static void findAllMethodsAndAssociations(string xmiId, dynamic json, ref List<string> methods, ref List<string> associations)
     {
-        List<string> methods = new List<string>();
+        List<string> sendEvents = new List<string>();
         foreach (var element in json)
         {
             if (element["XmiType"] == OccourenceType && element["covered"][0]["XmiIdRef"] == xmiId)
             {
-                string messageId = element["XmiId"];
+                string messageId = (string)element["XmiId"];
                 foreach (var element2 in json)
                 {
                     if (element2["XmiType"] == MessageType && element2["receiveEvent"]["XmiIdRef"] == messageId)
                     {
                         methods.Add((string)element2["name"]);
+                        sendEvents.Add((string)element2["sendEvent"]["XmiIdRef"]);
                     }
                 }
             }
         }
 
-        return methods;
+        foreach (var element in json)
+        {
+            foreach (var sendEvent in sendEvents)
+            {
+                if (element["XmiType"] == OccourenceType && element["XmiId"] == sendEvent)
+                {
+                    string lifelineId = (string)element["covered"][0]["XmiIdRef"];
+                    foreach (var element2 in json)
+                    {
+                        if (element2["XmiType"] == LifelineType && element2["XmiId"] == lifelineId)
+                        {
+                            associations.Add((string)element2["name"]);
+                        }
+                    }
+                }
+            }
+
+        }
     }
 }

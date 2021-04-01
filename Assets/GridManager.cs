@@ -2,9 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json;
 using UnityEngine;
 using SFB;
 using TMPro;
+using WebSocketSharp;
 
 public class GridManager : MonoBehaviour
 {
@@ -14,16 +16,19 @@ public class GridManager : MonoBehaviour
     public GameObject plusButton;
     public GameObject minusButton;
     public GameObject openFileButton;
+    public GameObject exportButton;
     public GameObjectEvent triggerSelectAction;
     public GameObjectEvent triggerPlusAction;
     public GameObjectEvent triggerMinusAction;
-    public GameObjectEvent triggerOpenFileButton;    
+    public GameObjectEvent triggerOpenFileButton;
+    public GameObjectEvent triggerExportButton;
     private Coroutine clickRoutine;
     private bool clickRoutineRunning;
 
     private ClassDiagram diagram;
-    private Dictionary<string, List<string>> rawClassesFromFile = new Dictionary<string, List<string>>();
+    private Dictionary<string, RawClass> rawClassesFromFile = new Dictionary<string, RawClass>();
     private Dictionary<string, GameObject> classesFromFile = new Dictionary<string, GameObject>();
+    private Dictionary<string, GameObject> addedClasses = new Dictionary<string, GameObject>();
 
     private static readonly ExtensionFilter[] JsonExtension = new ExtensionFilter[]
     {
@@ -49,6 +54,10 @@ public class GridManager : MonoBehaviour
 	    GameObject open = Instantiate(openFileButton, gridUnits);
 	    open.GetComponent<GridManager>().triggerOpenFileButton.AddListener(OpenFile);
 	    open.transform.position = new Vector3(xStart + 95, yStart + 15);
+
+	    GameObject export = Instantiate(exportButton, gridUnits);
+	    export.GetComponent<GridManager>().triggerExportButton.AddListener(Export);
+	    export.transform.position = new Vector3(xStart + 135, yStart + 15);
     }
 
     public void OpenFile(GameObject go)
@@ -72,15 +81,16 @@ public class GridManager : MonoBehaviour
 		    foreach (var classObject in diagram.Nodes)
 		    {
 			    var match = reg.Match(classObject.Key);
-			    if (rawClassesFromFile.ContainsKey(match.Groups[1].Value))
+			    string name = match.Groups[1].Value;
+			    if (name.IsNullOrEmpty())
 			    {
-				    classesFromFile.Add(classObject.Key, classObject.Value);
-				    rawClassesFromFile.Remove(match.Groups[1].Value);
+				    name = classObject.Key;
 			    }
-			    else if (rawClassesFromFile.ContainsKey(classObject.Key))
+
+			    if (rawClassesFromFile.ContainsKey(name))
 			    {
 				    classesFromFile.Add(classObject.Key, classObject.Value);
-				    rawClassesFromFile.Remove(classObject.Key);
+				    rawClassesFromFile.Remove(name);
 			    }
 		    }
 	    }
@@ -102,13 +112,28 @@ public class GridManager : MonoBehaviour
 		    var qp = qpIndex != -1 ? $"{classObject.Key.Substring(0, qpIndex)}\n" : "";
 		    header.GetComponent<TextMeshProUGUI>().text = $"<size=75%>{stereotype}{qp}</size>" + classObject.Key;
 
-		    foreach (var method in classObject.Value)
+		    foreach (var method in classObject.Value.methods)
 		    {
 			    methods.GetComponent<TextMeshProUGUI>().text += $"{method}()\n";
 		    }
 
+		    methods.GetComponent<TextMeshProUGUI>().text += $"{"estejedenmethod"}()\n";
+		    
+		    foreach (var association in classObject.Value.associations)
+		    {
+			    foreach (var theNode in diagram.Nodes)
+			    {
+				    if (theNode.Key.Contains(association))
+				    {
+					    GameObject edge = diagram.AddEdge(theNode.Value, node, diagram.association);
+					    diagram.Relationshipis.Add(new Relationship(edge, theNode.Value, node, "association"));
+				    }
+			    }
+		    }
+
 		    diagram.AddNode(node.name, node);
 		    classesFromFile.Add(node.name, node);
+		    addedClasses.Add(node.name, node);
 		    toBeRemoved.Add(node.name);
 	    }
 
@@ -119,23 +144,51 @@ public class GridManager : MonoBehaviour
 
 	    foreach (var classObject in classesFromFile)
 	    {
+		    string path = "";
 			diagram.AddNode(classObject.Key, classObject.Value);
+			path = getFilePathFromNode(diagram, classObject.Key, path);
+			FileInfo fi = new FileInfo(path, 0, 0);
 
 			foreach (var relationship in diagram.Relationshipis)
 		    {
-			    if (relationship.type == "specialization")
+			    if (relationship.from.name == classObject.Value.name && !relationship.edge.activeSelf)
 			    {
-				    if (relationship.from.name == classObject.Value.name && !relationship.edge.activeSelf)
+				    relationship.edge = diagram.AddEdge(relationship.from, relationship.to, diagram.specialization);
+			    } else if (fi.filePath.IsNullOrEmpty() && (relationship.from.name == classObject.Value.name || relationship.to.name == classObject.Value.name))
+			    {
+				    string fromPath = getFilePathFromNode(diagram, relationship.from.name, path);
+				    string toPath = getFilePathFromNode(diagram, relationship.to.name, path);
+				    if (fromPath != path)
 				    {
-					    Debug.Log("relationship from " + relationship.from.name + " to " + relationship.to.name);
-					    relationship.edge = diagram.AddEdge(relationship.from, relationship.to, diagram.specialization);
+					    path = fromPath;
+				    } else if (toPath != path)
+				    {
+					    path = toPath;
 				    }
 			    }
 		    }
+
+			fi.filePath = path;
+			diagram.Nodes[classObject.Key].GetComponent<UNode>().UserData = fi;
 	    }
 
 	    diagram.UpdateGraph();
 	    diagram.Layout();
+    }
+
+    private string getFilePathFromNode(ClassDiagram diagram, string key, string path)
+    {
+	    try
+	    {
+		    FileInfo fi = (FileInfo)diagram.Nodes[key].GetComponent<UNode>().UserData;
+		    if (!fi.filePath.IsNullOrEmpty())
+		    {
+			    path = fi.filePath;
+		    }
+	    }
+	    catch (Exception e) {}
+
+	    return path;
     }
 
     private void minusAction(GameObject go)
@@ -147,25 +200,22 @@ public class GridManager : MonoBehaviour
 	    {
 		    foreach (var relationship in diagram.Relationshipis)
 		    {
-			    if (relationship.type == "specialization")
+			    if (relationship.from.name == classObject.Value.name || relationship.to.name == classObject.Value.name)
 			    {
-				    if (relationship.from.name == classObject.Value.name || relationship.to.name == classObject.Value.name)
+				    if (!removedEdges.Contains(relationship.edge))
 				    {
-					    if (!removedEdges.Contains(relationship.edge))
-					    {
-						    removedEdges.Add(relationship.edge);
-					    }
+					    removedEdges.Add(relationship.edge);
+				    }
 					    
-					    if (!removedNodes.Contains(relationship.from))
-					    {
-						    removedNodes.Add(relationship.from);
-					    }
-				    }
-
-				    if (relationship.to.name == classObject.Value.name && !removedNodes.Contains(relationship.edge))
+				    if (!removedNodes.Contains(relationship.from))
 				    {
-					    removedNodes.Add(relationship.to);
+					    removedNodes.Add(relationship.from);
 				    }
+			    }
+
+			    if (relationship.to.name == classObject.Value.name && !removedNodes.Contains(relationship.edge))
+			    {
+				    removedNodes.Add(relationship.to);
 			    }
 		    }
 
@@ -188,6 +238,28 @@ public class GridManager : MonoBehaviour
 	    }
 
 	    diagram.Layout();
+    }
+
+    public void Export(GameObject go)
+    {
+	    Dictionary<string, Dictionary<string, List<string>>> data = new Dictionary<string, Dictionary<string, List<string>>>();
+
+	    foreach (var added in addedClasses)
+	    {
+		    FileInfo fileInfo = (FileInfo)added.Value.GetComponent<UNode>().UserData;
+		    Dictionary<string, List<string>> parameters = new Dictionary<string, List<string>>();
+		    var methodsText = added.Value.transform.Find("Background").Find("Methods").GetComponent<TextMeshProUGUI>().text;
+		    var methods = new List<string>(methodsText.Split(new string[] { "()\n" }, StringSplitOptions.None));
+		    parameters.Add("methods", methods);
+		    var paths = new List<string>();
+		    paths.Add(fileInfo.filePath);
+		    parameters.Add("fsPath", paths);
+		    data.Add(added.Key, parameters);
+	    }
+
+	    string message = $"{{\"action\":\"generateClasses\", \"args\":{JsonConvert.SerializeObject(data)}}}";
+	    Debug.Log(message);
+	    diagram.client.GetComponent<IDEManager>().SendMessage(message);
     }
 
     IEnumerator SingleClick()
@@ -217,5 +289,6 @@ public class GridManager : MonoBehaviour
 	    triggerMinusAction.Invoke(gameObject);
 	    triggerSelectAction.Invoke(gameObject);
 	    triggerOpenFileButton.Invoke(gameObject);
+	    triggerExportButton.Invoke(gameObject);
     }
 }

@@ -225,7 +225,9 @@ MonoBehaviour:
     type: 3}
   minusButton: {fileID: 7294237552894167080, guid: 4e3adde356b7df948a11a6528c68e09e,
     type: 3}
-  openFileButton: {fileID: 0}
+  openFileButton: {fileID: 6106785706536180820}
+  exportButton: {fileID: 332754300706105913, guid: 856a0467a17b03e468db06c37fc6b673,
+    type: 3}
   triggerSelectAction:
     m_PersistentCalls:
       m_Calls: []
@@ -239,6 +241,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: GameObjectEvent, XDE, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   triggerOpenFileButton:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: GameObjectEvent, XDE, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  triggerExportButton:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: GameObjectEvent, XDE, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null

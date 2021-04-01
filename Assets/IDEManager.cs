@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 public class IDEManager : MonoBehaviour
@@ -10,6 +9,11 @@ public class IDEManager : MonoBehaviour
 	{
 		FileInfo fileInfo = (FileInfo)go.GetComponent<UNode>().UserData;
 		GetComponent<WSClient>().Send($"{{\"action\":\"ideAction\", \"args\":{{\"type\":\"goto\", \"path\":{JsonConvert.ToString(fileInfo.filePath)}, \"fromLine\":{fileInfo.lineFrom}, \"toLine\":{fileInfo.lineTo}}}}}");
+	}
+	
+	public void SendMessage(string message)
+	{
+		GetComponent<WSClient>().Send(message);
 	}
 	
 	private List<Subset> _datasets = new List<Subset>();

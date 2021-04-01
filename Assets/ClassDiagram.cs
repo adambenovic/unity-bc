@@ -13,11 +13,6 @@ public class ClassDiagram : Diagram
 
 	private List<Relationship> relationshipis = new List<Relationship>();
 
-	protected override void Awake()
-	{
-		base.Awake();
-	}
-
 	protected override IEnumerator Loader(JObject data)
 	{
 		foreach (JProperty cls in data["classes"])
@@ -34,7 +29,7 @@ public class ClassDiagram : Diagram
 			var stereotype = type != "class" ? $"<<{type}>>\n" : "";
 			var qpIndex = cls.Name.LastIndexOf('.');
 			var qp = qpIndex != -1 ? $"{cls.Name.Substring(0, qpIndex)}\n" : "";
-			header.GetComponent<TextMeshProUGUI>().text = $"<size=75%>{stereotype}{qp}</size>" + cls.Value["name"].ToString();
+			header.GetComponent<TextMeshProUGUI>().text = $"<size=75%>{stereotype}{qp}</size>" + cls.Value["name"];
 
 			foreach (JProperty attr in cls.Value["attributes"])
 			{
