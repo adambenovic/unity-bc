@@ -45,19 +45,19 @@ public class GridManager : MonoBehaviour
 
         GameObject plus = Instantiate(plusButton, gridUnits);
 	    plus.GetComponent<GridManager>().triggerPlusAction.AddListener(plusAction);
-	    plus.transform.position = new Vector3(xStart + 50, yStart + 15);
+	    plus.transform.position = new Vector3(xStart + 50, yStart);
 	    
 	    GameObject minus = Instantiate(minusButton, gridUnits);
 	    minus.GetComponent<GridManager>().triggerMinusAction.AddListener(minusAction);
-	    minus.transform.position = new Vector3(xStart + 65, yStart + 15);
+	    minus.transform.position = new Vector3(xStart + 65, yStart);
 	    
 	    GameObject open = Instantiate(openFileButton, gridUnits);
 	    open.GetComponent<GridManager>().triggerOpenFileButton.AddListener(OpenFile);
-	    open.transform.position = new Vector3(xStart + 95, yStart + 15);
+	    open.transform.position = new Vector3(xStart + 95, yStart);
 
 	    GameObject export = Instantiate(exportButton, gridUnits);
 	    export.GetComponent<GridManager>().triggerExportButton.AddListener(Export);
-	    export.transform.position = new Vector3(xStart + 135, yStart + 15);
+	    export.transform.position = new Vector3(xStart + 135, yStart);
     }
 
     public void OpenFile(GameObject go)
