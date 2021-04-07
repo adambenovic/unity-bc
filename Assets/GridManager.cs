@@ -265,6 +265,9 @@ public class GridManager : MonoBehaviour
 		    var methodsText = added.Value.transform.Find("Background").Find("Methods").GetComponent<TextMeshProUGUI>().text;
 		    var methods = new List<string>(methodsText.Split(new string[] { "()\n" }, StringSplitOptions.None));
 		    parameters.Add("methods", methods);
+		    var name = new List<string>();
+		    name.Add(added.Key);
+		    parameters.Add("name", name);
 		    var paths = new List<string>();
 		    paths.Add(fileInfo.filePath);
 		    parameters.Add("fsPath", paths);
