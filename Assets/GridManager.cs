@@ -40,24 +40,24 @@ public class GridManager : MonoBehaviour
 	    this.diagram = diagram;
 	    gridUnits = transform.Find("GridUnits");
 	    var graphPosition = diagram.GetComponent<RectTransform>().rect;
-        var xStart = graphPosition.width;
-        var yStart = graphPosition.height;
+        var xStart = graphPosition.xMin;
+        var yStart = graphPosition.yMax + 25;
 
         GameObject plus = Instantiate(plusButton, gridUnits);
 	    plus.GetComponent<GridManager>().triggerPlusAction.AddListener(plusAction);
-	    plus.transform.position = new Vector3(xStart + 50, yStart);
+	    plus.transform.position = new Vector3(xStart, yStart);
 	    
 	    GameObject minus = Instantiate(minusButton, gridUnits);
 	    minus.GetComponent<GridManager>().triggerMinusAction.AddListener(minusAction);
-	    minus.transform.position = new Vector3(xStart + 65, yStart);
+	    minus.transform.position = new Vector3(xStart + 15, yStart);
 	    
 	    GameObject open = Instantiate(openFileButton, gridUnits);
 	    open.GetComponent<GridManager>().triggerOpenFileButton.AddListener(OpenFile);
-	    open.transform.position = new Vector3(xStart + 95, yStart);
+	    open.transform.position = new Vector3(xStart + 45, yStart);
 
 	    GameObject export = Instantiate(exportButton, gridUnits);
 	    export.GetComponent<GridManager>().triggerExportButton.AddListener(Export);
-	    export.transform.position = new Vector3(xStart + 135, yStart);
+	    export.transform.position = new Vector3(xStart + 85, yStart);
     }
 
     public void OpenFile(GameObject go)
@@ -118,6 +118,11 @@ public class GridManager : MonoBehaviour
 		    }
 
 		    methods.GetComponent<TextMeshProUGUI>().text += $"{"estejedenmethod"}()\n";
+
+		    diagram.AddNode(node.name, node);
+		    classesFromFile.Add(node.name, node);
+		    addedClasses.Add(node.name, node);
+		    toBeRemoved.Add(node.name);
 		    
 		    foreach (var association in classObject.Value.associations)
 		    {
@@ -130,11 +135,6 @@ public class GridManager : MonoBehaviour
 				    }
 			    }
 		    }
-
-		    diagram.AddNode(node.name, node);
-		    classesFromFile.Add(node.name, node);
-		    addedClasses.Add(node.name, node);
-		    toBeRemoved.Add(node.name);
 	    }
 
 	    foreach (var toRemove in toBeRemoved)
@@ -144,16 +144,31 @@ public class GridManager : MonoBehaviour
 
 	    foreach (var classObject in classesFromFile)
 	    {
-		    string path = "";
 			diagram.AddNode(classObject.Key, classObject.Value);
-			path = getFilePathFromNode(diagram, classObject.Key, path);
-			FileInfo fi = new FileInfo(path, 0, 0);
+	    }
 
-			foreach (var relationship in diagram.Relationshipis)
+	    foreach (var classObject in classesFromFile)
+	    {
+		    string path = "";
+		    path = getFilePathFromNode(diagram, classObject.Key, path);
+		    FileInfo fi = new FileInfo(path, 0, 0);
+
+		    foreach (var relationship in diagram.Relationshipis)
 		    {
 			    if (relationship.from.name == classObject.Value.name && !relationship.edge.activeSelf)
 			    {
-				    relationship.edge = diagram.AddEdge(relationship.from, relationship.to, diagram.specialization);
+				    if (relationship.type == "association")
+				    {
+					    prefab = diagram.association;
+				    } else if (relationship.type == "specialization")
+				    {
+					    prefab = diagram.specialization;
+				    } else if(relationship.type == "implements")
+				    {
+					    prefab = diagram.implements;
+				    }
+
+				    relationship.edge = diagram.AddEdge(relationship.from, relationship.to, prefab);
 			    } else if (fi.filePath.IsNullOrEmpty() && (relationship.from.name == classObject.Value.name || relationship.to.name == classObject.Value.name))
 			    {
 				    string fromPath = getFilePathFromNode(diagram, relationship.from.name, path);
@@ -168,11 +183,10 @@ public class GridManager : MonoBehaviour
 			    }
 		    }
 
-			fi.filePath = path;
-			diagram.Nodes[classObject.Key].GetComponent<UNode>().UserData = fi;
+		    fi.filePath = path;
+		    diagram.Nodes[classObject.Key].GetComponent<UNode>().UserData = fi;
 	    }
 
-	    diagram.UpdateGraph();
 	    diagram.Layout();
     }
 
