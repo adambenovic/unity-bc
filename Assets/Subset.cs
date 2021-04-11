@@ -3,8 +3,14 @@ using UnityEngine;
 
 public class Subset
 {
-    private List<GameObject> _gameObjects = new List<GameObject>();
-    private readonly Color _color = Random.ColorHSV();
+    private List<GameObject> _gameObjects;
+    private readonly Color _color;
+
+    public Subset()
+    {
+        _gameObjects = new List<GameObject>();
+        _color = Random.ColorHSV();
+    }
 
     public void AddToSubset(GameObject go)
     {
@@ -26,5 +32,14 @@ public class Subset
     public Color GetColor()
     {
         return _color;
+    }
+
+    public void Clear()
+    {
+        _gameObjects.Clear();
+    }
+    public List<GameObject> GetObjects()
+    {
+        return _gameObjects;
     }
 }

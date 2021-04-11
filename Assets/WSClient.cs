@@ -22,7 +22,6 @@ public class WSClient : MonoBehaviour
     public GameObject diagramGridPrefab;
     public Transform diagrams;
 	public Transform misc;
-	public Transform grid;
 
 	private WebSocket ws;
 	private ConcurrentQueue<Action> queue;
@@ -60,7 +59,6 @@ public class WSClient : MonoBehaviour
 
 	void OnGenerateDiagram(string type, JObject data)
 	{
-		Debug.Log("gen");
 		if (type == "class")
 		{
 			CreateClassDiagram(data);
@@ -169,9 +167,10 @@ public class WSClient : MonoBehaviour
 			cdGraph.client = this;
 			cdGraph.Load(data);
 
-			var dGrid = Instantiate(diagramGridPrefab, grid);
-			var cdGrid = dGrid.GetComponent<GridManager>();
-			cdGrid.GridGenerate(cdGraph);
+			var gGo = Instantiate(diagramGridPrefab, diagrams);
+			var gManager = gGo.GetComponent<GridManager>();
+			gManager.client = this;
+			gManager.GridGenerate(cdGraph);
 		});
 	}
 
@@ -214,7 +213,6 @@ public class WSClient : MonoBehaviour
 			{
 				foreach (JObject obj in objs)
 				{
-					Debug.Log("fromLineNo: " + obj.Value<int>("fromLineNo"));
 					var fromLine = obj.Value<int>("fromLineNo");
 					var toLine = obj.Value<int>("toLineNo");
 					if (line >= fromLine && line <= toLine)

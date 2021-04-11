@@ -18,8 +18,8 @@ public class ClassDiagram : Diagram
 		foreach (JProperty cls in data["classes"])
 		{
 			var node = AddNode();
-			node.GetComponent<Clickable>().triggerAction.AddListener(client.GetComponent<IDEManager>().ShowInEditor);
-			node.GetComponent<Clickable>().triggerCtrlAction.AddListener(client.GetComponent<IDEManager>().Manage);
+			node.GetComponent<Clickable>().triggerAction.AddListener(client.GetComponent<IDEManager>().Select);
+			node.GetComponent<Clickable>().triggerCtrlAction.AddListener(client.GetComponent<IDEManager>().SelectMultiple);
 			node.name = cls.Name;
 			var background = node.transform.Find("Background");
 			var header = background.Find("Header");

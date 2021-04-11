@@ -1,10 +1,16 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using Newtonsoft.Json;
 using UnityEngine;
 
 public class IDEManager : MonoBehaviour
 {
+	private Subset selected;
+
+	public void Start()
+	{
+		selected = new Subset();
+	}
+
 	public void ShowInEditor(GameObject go)
 	{
 		FileInfo fileInfo = (FileInfo)go.GetComponent<UNode>().UserData;
@@ -15,48 +21,34 @@ public class IDEManager : MonoBehaviour
 	{
 		GetComponent<WSClient>().Send(message);
 	}
+
+	public Subset GetSelected()
+	{
+		return selected;
+	}
 	
-	private List<Subset> _datasets = new List<Subset>();
-	public void Manage(GameObject go, bool isNextDataset)
+	public void Select(GameObject go)
 	{
-		if(CheckHighlighted(go))
+		var wasHighlighted = go.GetComponent<BackgroundHighlighter>().IsHighlightedOutline();
+		var numObjects = selected.GetObjects().Count;
+
+		foreach (var classToRemove in selected.GetObjects())
+		{
+			classToRemove.GetComponent<BackgroundHighlighter>().UnhighlightOutline();
+		}
+
+		selected.Clear();
+		selected.AddToSubset(go);
+		if (!wasHighlighted || numObjects > 1)
+			go.GetComponent<BackgroundHighlighter>().HighlightOutline(Color.black);
+	}
+
+	public void SelectMultiple(GameObject go, bool isNextDataset)
+	{
+		if (CheckHighlighted(go))
 			return;
-		var index = AddToSet(go, isNextDataset);
-		go.GetComponent<BackgroundHighlighter>().HighlightOutline(_datasets[index].GetColor());
-	}
-
-	/**
-	 * Return index of Subset to which GameObject was added.
-	 */
-	private int AddToSet(GameObject go, bool isNextDataset)
-	{
-		if (isNextDataset || !_datasets.Any())
-		{
-			Subset newSubset = new Subset();
-			newSubset.AddToSubset(go);
-			_datasets.Add(newSubset);
-		}
-		else
-		{
-			_datasets[_datasets.Count - 1].AddToSubset(go);
-		}
-
-		return _datasets.Count - 1;
-	}
-
-	/**
-	 * Return index of Subset in which GameObject is contained.
-	 */
-	private int FindSubset(GameObject go)
-	{
-		int index;
-		for (index = 0; index < _datasets.Count; index++)
-		{
-			if (_datasets[index].IsInSubset(go))
-				break;
-		}
-
-		return index;
+		selected.AddToSubset(go);
+		go.GetComponent<BackgroundHighlighter>().HighlightOutline(Color.black);
 	}
 
 	private bool CheckHighlighted(GameObject go)
@@ -64,9 +56,9 @@ public class IDEManager : MonoBehaviour
 		BackgroundHighlighter bg = go.GetComponent<BackgroundHighlighter>();
 		if (bg.IsHighlightedOutline())
 		{
+			Debug.Log("clicking on highlighted");
 			bg.UnhighlightOutline();
-			int index = FindSubset(go);
-			_datasets[index].RemoveFromSubset(go);
+			selected.RemoveFromSubset(go);
 
 			return true;
 		}
