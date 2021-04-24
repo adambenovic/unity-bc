@@ -42,24 +42,24 @@ public class GridManager : MonoBehaviour
 		this.diagram = diagram;
 		gridUnits = transform.Find("GridUnits");
 		var graphPosition = diagram.GetComponent<RectTransform>().rect;
-		var xStart = graphPosition.xMin;
-		var yStart = graphPosition.yMax + 25;
+		var xStart = graphPosition.xMin + 35;
+		var yStart = graphPosition.yMax - 30;
 
 		GameObject plus = Instantiate(plusButton, gridUnits);
 		plus.GetComponent<GridManager>().triggerPlusAction.AddListener(plusAction);
-		plus.transform.position = new Vector3(xStart, yStart);
+		plus.transform.position = new Vector3(xStart, yStart, 25);
 
 		GameObject minus = Instantiate(minusButton, gridUnits);
 		minus.GetComponent<GridManager>().triggerMinusAction.AddListener(minusAction);
-		minus.transform.position = new Vector3(xStart + 15, yStart);
+		minus.transform.position = new Vector3(xStart + 2.5f, yStart, 25);
 
 		GameObject open = Instantiate(openFileButton, gridUnits);
 		open.GetComponent<GridManager>().triggerOpenFileButton.AddListener(OpenFile);
-		open.transform.position = new Vector3(xStart + 45, yStart);
+		open.transform.position = new Vector3(xStart + 10, yStart, 25);
 
 		GameObject export = Instantiate(exportButton, gridUnits);
 		export.GetComponent<GridManager>().triggerExportButton.AddListener(Export);
-		export.transform.position = new Vector3(xStart + 85, yStart);
+		export.transform.position = new Vector3(xStart + 20, yStart, 25);
 	}
 
 	public void OpenFile(GameObject go)
