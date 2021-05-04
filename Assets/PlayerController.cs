@@ -9,11 +9,6 @@ public class PlayerController : MonoBehaviour
     public bool showController = true;
     public bool showHand = false;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         foreach (var hand in Player.instance.hands)

@@ -1,5 +1,4 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using UnityEngine;
 
 public class IDEManager : MonoBehaviour
@@ -29,7 +28,8 @@ public class IDEManager : MonoBehaviour
 	
 	public void Select(GameObject go)
 	{
-		var wasHighlighted = go.GetComponent<BackgroundHighlighter>().IsHighlightedOutline();
+		var highlighter = go.GetComponent<BackgroundHighlighter>();
+		var wasHighlighted = highlighter.IsHighlightedOutline() && highlighter.highlightColor != highlighter.myGreen;
 		var numObjects = selected.GetObjects().Count;
 
 		foreach (var classToRemove in selected.GetObjects())
@@ -40,7 +40,7 @@ public class IDEManager : MonoBehaviour
 		selected.Clear();
 		selected.AddToSubset(go);
 		if (!wasHighlighted || numObjects > 1)
-			go.GetComponent<BackgroundHighlighter>().HighlightOutline(Color.black);
+			highlighter.HighlightOutline(Color.black);
 	}
 
 	public void SelectMultiple(GameObject go, bool isNextDataset)
@@ -53,11 +53,10 @@ public class IDEManager : MonoBehaviour
 
 	private bool CheckHighlighted(GameObject go)
 	{
-		BackgroundHighlighter bg = go.GetComponent<BackgroundHighlighter>();
-		if (bg.IsHighlightedOutline())
+		BackgroundHighlighter highlighter = go.GetComponent<BackgroundHighlighter>();
+		if (highlighter.IsHighlightedOutline() && selected.IsInSubset(go))
 		{
-			Debug.Log("clicking on highlighted");
-			bg.UnhighlightOutline();
+			highlighter.UnhighlightOutline();
 			selected.RemoveFromSubset(go);
 
 			return true;

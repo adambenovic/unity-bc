@@ -7,6 +7,7 @@ public class BackgroundHighlighter : MonoBehaviour {
 
 	public Color highlightColor;
 	public Color defaultColor = Color.black;
+	public Color myGreen = new Color(0, 102, 0);
 
 	private void Awake()
 	{
@@ -18,6 +19,7 @@ public class BackgroundHighlighter : MonoBehaviour {
 		Outline outline = GetComponentInChildren<Outline>();
 		outline.effectColor = color;
 		outline.enabled = true;
+		highlightColor = color;
 	}
 
 	public void HighlightBackground()
@@ -30,6 +32,7 @@ public class BackgroundHighlighter : MonoBehaviour {
 		Outline outline = GetComponentInChildren<Outline>();
 		outline.effectColor = defaultColor;
 		outline.enabled = false;
+		highlightColor = defaultColor;
 	}
 
 	public void UnhighlightBackground()
