@@ -85,7 +85,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &114180262999388590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,10 +153,8 @@ MonoBehaviour:
   factor: 2
   margins: {x: 100, y: 100}
   client: {fileID: 0}
-  association: {fileID: 1523548488617654, guid: 8846a04a1bcd19640a8399f4ee850ef7,
-    type: 3}
-  specialization: {fileID: 1523548488617654, guid: 6727b2e753ee1af4cbe41b7ff5b08400,
-    type: 3}
+  association: {fileID: 1523548488617654, guid: 8846a04a1bcd19640a8399f4ee850ef7, type: 3}
+  specialization: {fileID: 1523548488617654, guid: 6727b2e753ee1af4cbe41b7ff5b08400, type: 3}
   implements: {fileID: 1523548488617654, guid: 6d1a3b66bcf559a4d9bb281de32d2fb5, type: 3}
 --- !u!1 &1752280147566604
 GameObject:

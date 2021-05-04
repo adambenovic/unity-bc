@@ -2,13 +2,13 @@
   "source": "Unity",
   "applications": [
     {
-      "app_key": "application.generated.unity.wstest.exe",
+      "app_key": "application.generated.unity.newunityproject.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\bakalarka\\unity-bc - 2020\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\bakalarka\\New Unity Project\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
-          "name": "WSTest [Testing]"
+          "name": "New Unity Project [Testing]"
         }
       }
     }

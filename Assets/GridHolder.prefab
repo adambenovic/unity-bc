@@ -71,7 +71,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7182365215701201599}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
@@ -84,6 +84,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
 --- !u!222 &6971090045435027253
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -101,17 +102,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7182365215701201599}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0.3137255, a: 0.3137255}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -121,6 +122,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &4640876692508444100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,36 +136,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 2271463560863531605, guid: 406aed20450c0a2419f9318e0152a7e5, type: 3}
-  plusButton: {fileID: 332754300706105913, guid: a23d40934b27298478d717c2cc7bef09,
-    type: 3}
-  minusButton: {fileID: 7294237552894167080, guid: 4e3adde356b7df948a11a6528c68e09e,
-    type: 3}
-  openFileButton: {fileID: 6106785706536180820, guid: ca0a04bf036960f40be1679cd1e62514,
-    type: 3}
-  exportButton: {fileID: 332754300706105913, guid: 856a0467a17b03e468db06c37fc6b673,
-    type: 3}
-  classDiagramPrefab: {fileID: 1176720246325394, guid: 85a692f9b309fe44db8a5a37664a2cae,
-    type: 3}
-  triggerSelectAction:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GameObjectEvent, XDE, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  triggerPlusAction:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GameObjectEvent, XDE, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  triggerMinusAction:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GameObjectEvent, XDE, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  triggerOpenFileButton:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GameObjectEvent, XDE, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  triggerExportButton:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: GameObjectEvent, XDE, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  client: {fileID: 0}
+  buttonPrefab: {fileID: 332754300706105913, guid: 856a0467a17b03e468db06c37fc6b673, type: 3}
+  classDiagramPrefab: {fileID: 1176720246325394, guid: 85a692f9b309fe44db8a5a37664a2cae, type: 3}
 --- !u!1 &7182947372917035553
 GameObject:
   m_ObjectHideFlags: 0

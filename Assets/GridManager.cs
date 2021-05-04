@@ -14,15 +14,8 @@ public class GridManager : MonoBehaviour
 	private Transform gridUnits;
 
 	public WSClient client;
-	public GameObject plusButton;
-	public GameObject minusButton;
-	public GameObject openFileButton;
-	public GameObject exportButton;
+	public GameObject buttonPrefab;
 	public GameObject classDiagramPrefab;
-	public GameObjectEvent triggerPlusAction;
-	public GameObjectEvent triggerMinusAction;
-	public GameObjectEvent triggerOpenFileButton;
-	public GameObjectEvent triggerExportButton;
 	private Coroutine clickRoutine;
 	private bool clickRoutineRunning;
 
@@ -45,23 +38,34 @@ public class GridManager : MonoBehaviour
 		var xStart = graphPosition.xMin + 35;
 		var yStart = graphPosition.yMax - 30;
 
-		GameObject plus = Instantiate(plusButton, gridUnits);
-		plus.GetComponent<GridManager>().triggerPlusAction.AddListener(plusAction);
+		GameObject plus = Instantiate(buttonPrefab, gridUnits);
+		plus.GetComponent<Clickable>().triggerAction.AddListener(plusAction);
+		addTextToButton(plus,  "+");
 		plus.transform.position = new Vector3(xStart, yStart, 25);
 
-		GameObject minus = Instantiate(minusButton, gridUnits);
-		minus.GetComponent<GridManager>().triggerMinusAction.AddListener(minusAction);
+		GameObject minus = Instantiate(buttonPrefab, gridUnits);
+		minus.GetComponent<Clickable>().triggerAction.AddListener(minusAction);
+		addTextToButton(minus,  "-");
 		minus.transform.position = new Vector3(xStart + 2.5f, yStart, 25);
 
-		GameObject open = Instantiate(openFileButton, gridUnits);
-		open.GetComponent<GridManager>().triggerOpenFileButton.AddListener(OpenFile);
+		GameObject open = Instantiate(buttonPrefab, gridUnits);
+		open.GetComponent<Clickable>().triggerAction.AddListener(OpenFile);
+		addTextToButton(open,  "Open file");
 		open.transform.position = new Vector3(xStart + 10, yStart, 25);
 
-		GameObject export = Instantiate(exportButton, gridUnits);
-		export.GetComponent<GridManager>().triggerExportButton.AddListener(Export);
+		GameObject export = Instantiate(buttonPrefab, gridUnits);
+		export.GetComponent<Clickable>().triggerAction.AddListener(Export);
+		addTextToButton(export,  "Export");
 		export.transform.position = new Vector3(xStart + 20, yStart, 25);
 	}
 
+	private void addTextToButton(GameObject button, string text)
+	{
+		var background = button.transform.Find("Background");
+		var header = background.Find("Header");
+		header.GetComponent<TextMeshProUGUI>().text = text;
+	}
+	
 	public void OpenFile(GameObject go)
 	{
 		var paths = StandaloneFileBrowser.OpenFilePanel("Open File", "./Examples/", JsonExtension, false);
@@ -88,7 +92,7 @@ public class GridManager : MonoBehaviour
 
 			var cdGo = Instantiate(classDiagramPrefab, gridUnits);
 			var graphPos = diagram.GetComponent<RectTransform>().rect;
-			cdGo.transform.position = new Vector3(graphPos.center.x + 200, graphPos.center.y);
+			cdGo.transform.position = new Vector3(graphPos.center.x + 25, graphPos.center.y + 5, 25);
 			var classDiagram = cdGo.GetComponent<ClassDiagram>();
 
 			foreach (var classObject in rawClassesFromFile)
@@ -358,9 +362,6 @@ public class GridManager : MonoBehaviour
 
     void OnRealMouseDown()
     {
-	    triggerPlusAction.Invoke(gameObject);
-	    triggerMinusAction.Invoke(gameObject);
-	    triggerOpenFileButton.Invoke(gameObject);
-	    triggerExportButton.Invoke(gameObject);
+	    
     }
 }
