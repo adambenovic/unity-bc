@@ -10,9 +10,7 @@ using WebSocketSharp;
 
 public class GridManager : MonoBehaviour
 {
-	public GameObject prefab;
 	private Transform gridUnits;
-
 	public WSClient client;
 	public GameObject buttonPrefab;
 	public GameObject classDiagramPrefab;
@@ -202,6 +200,7 @@ public class GridManager : MonoBehaviour
 
 		foreach (var classObject in classesFromFile)
 		{
+			var prefab = diagram.association;
 			string path = "";
 			path = getFilePathFromNode(diagram, classObject.Key, path);
 			FileInfo fi = new FileInfo(path, 0, 0);
@@ -303,13 +302,11 @@ public class GridManager : MonoBehaviour
 		foreach (var removed in removedNodes)
 		{
 			diagram.RemoveNode(removed);
-			removed.SetActive(false);
 		}
 
 		foreach (var removed in removedEdges)
 		{
 			diagram.RemoveEdge(removed);
-			removed.SetActive(false);
 		}
 
 		diagram.Layout();
@@ -324,8 +321,7 @@ public class GridManager : MonoBehaviour
 		{
 			FileInfo fileInfo = (FileInfo) added.Value.GetComponent<UNode>().UserData;
 			Dictionary<string, List<string>> parameters = new Dictionary<string, List<string>>();
-			var methodsText = added.Value.transform.Find("Background").Find("Methods").GetComponent<TextMeshProUGUI>()
-				.text;
+			var methodsText = added.Value.transform.Find("Background").Find("Methods").GetComponent<TextMeshProUGUI>().text;
 			var methods = new List<string>(methodsText.Split(new string[] {"()\n"}, StringSplitOptions.None));
 			parameters.Add("methods", methods);
 			var paths = new List<string>();

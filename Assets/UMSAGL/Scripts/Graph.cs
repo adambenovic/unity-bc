@@ -87,6 +87,8 @@ public class Graph : MonoBehaviour
 	public void RemoveNode(GameObject node)
 	{
 		graph.Nodes.Remove(node.GetComponent<UNode>().GraphNode);
+		
+		node.SetActive(false);
 	}
 
 	public GameObject AddEdge(GameObject from, GameObject to)
@@ -111,6 +113,7 @@ public class Graph : MonoBehaviour
 	public void RemoveEdge(GameObject edge)
 	{
 		graph.Edges.Remove(edge.GetComponent<UEdge>().GraphEdge);
+		edge.SetActive(false);
 	}
 
 	double ToGraphSpace(float x)

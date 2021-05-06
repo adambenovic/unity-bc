@@ -135,7 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f06b58b851cf04caff7b3732b88bff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2271463560863531605, guid: 406aed20450c0a2419f9318e0152a7e5, type: 3}
   client: {fileID: 0}
   buttonPrefab: {fileID: 332754300706105913, guid: 856a0467a17b03e468db06c37fc6b673, type: 3}
   classDiagramPrefab: {fileID: 1176720246325394, guid: 85a692f9b309fe44db8a5a37664a2cae, type: 3}
