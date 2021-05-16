@@ -15,7 +15,7 @@ public class IDEManager : MonoBehaviour
 		FileInfo fileInfo = (FileInfo)go.GetComponent<UNode>().UserData;
 		GetComponent<WSClient>().Send($"{{\"action\":\"ideAction\", \"args\":{{\"type\":\"goto\", \"path\":{JsonConvert.ToString(fileInfo.filePath)}, \"fromLine\":{fileInfo.lineFrom}, \"toLine\":{fileInfo.lineTo}}}}}");
 	}
-	
+
 	public void SendMessage(string message)
 	{
 		GetComponent<WSClient>().Send(message);
@@ -25,7 +25,7 @@ public class IDEManager : MonoBehaviour
 	{
 		return selected;
 	}
-	
+
 	public void Select(GameObject go)
 	{
 		var highlighter = go.GetComponent<BackgroundHighlighter>();

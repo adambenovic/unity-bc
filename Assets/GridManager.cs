@@ -63,7 +63,7 @@ public class GridManager : MonoBehaviour
 		var header = background.Find("Header");
 		header.GetComponent<TextMeshProUGUI>().text = text;
 	}
-	
+
 	public void OpenFile(GameObject go)
 	{
 		var paths = StandaloneFileBrowser.OpenFilePanel("Open File", "./Examples/", JsonExtension, false);
@@ -146,7 +146,7 @@ public class GridManager : MonoBehaviour
 		}
 	}
 
-	private void plusAction(GameObject go)
+	public void plusAction(GameObject go)
 	{
 		List<string> toBeRemoved = new List<string>();
 		foreach (var classObject in rawClassesFromFile)
@@ -264,7 +264,7 @@ public class GridManager : MonoBehaviour
 		return path;
 	}
 
-	private void minusAction(GameObject go)
+	public void minusAction(GameObject go)
 	{
 		List<GameObject> removedNodes = new List<GameObject>();
 		List<GameObject> removedEdges = new List<GameObject>();
